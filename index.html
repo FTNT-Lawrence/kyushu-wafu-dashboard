@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>九州自由行 · 和風行程儀表板 | LAWRENCE LAU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --indigo: #1B2A4A;
+  --indigo-deep: #0F1A2E;
+  --indigo-soft: #2A3F66;
+  --vermillion: #C45C4A;
+  --gold: #D4A574;
+  --gold-light: #E8C9A0;
+  --moss: #5A6B4A;
+  --moss-light: #7A8B6A;
+  --wisteria: #8B7BA8;
+  --washi: #F7F2EA;
+  --washi-warm: #F0E8DC;
+  --washi-card: #FFFCF7;
+  --ink: #2C2A26;
+  --ink-muted: #5C584F;
+  --ink-faint: #8A857A;
+  --line: #E5DDD0;
+  --shadow: 0 4px 24px rgba(27,42,74,0.08);
+  --shadow-hover: 0 8px 32px rgba(27,42,74,0.14);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --nav-h: 64px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Noto Sans JP", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: var(--washi);
+  color: var(--ink);
+  line-height: 1.65;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 10% 0%, rgba(139,123,168,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 20%, rgba(196,92,74,0.05) 0%, transparent 40%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%231B2A4A' fill-opacity='0.03'%3E%3Cpath d='M30 0l15 26H15L30 0zm0 60L15 34h30L30 60zm-30-30l26-15v30L0 30zm60 0L34 15v30l26-15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+h1,h2,h3,h4 { font-family: "Noto Serif JP", serif; font-weight: 600; letter-spacing: 0.02em; color: var(--indigo); }
+a { color: var(--vermillion); text-decoration: none; transition: color .2s; }
+a:hover { color: var(--indigo); }
+.nav {
+  position: sticky; top: 0; z-index: 100; height: var(--nav-h);
+  background: rgba(247,242,234,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between; padding: 0 1.5rem;
+}
+.nav-brand { display: flex; align-items: center; gap: .75rem; font-family: "Noto Serif JP", serif; font-size: 1.05rem; color: var(--indigo); font-weight: 600; }
+.nav-brand .crest {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--indigo), var(--indigo-soft));
+  display: grid; place-items: center; color: var(--gold); font-size: .85rem;
+  box-shadow: 0 2px 8px rgba(27,42,74,.25);
+}
+.nav-tabs { display: flex; gap: .25rem; }
+.nav-tab {
+  appearance: none; border: none; background: transparent;
+  padding: .5rem 1.1rem; border-radius: 999px;
+  font-family: inherit; font-size: .88rem; color: var(--ink-muted);
+  cursor: pointer; transition: all .25s; font-weight: 500;
+}
+.nav-tab:hover { background: var(--washi-warm); color: var(--indigo); }
+.nav-tab.active { background: var(--indigo); color: var(--washi); box-shadow: 0 2px 10px rgba(27,42,74,.2); }
+.nav-meta { font-size: .75rem; color: var(--ink-faint); text-align: right; }
+.nav-meta strong { color: var(--vermillion); display: block; font-size: .85rem; }
+.hero {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--indigo-deep) 0%, var(--indigo) 45%, var(--indigo-soft) 100%);
+  color: var(--washi); padding: 3rem 1.5rem 2.5rem; margin-bottom: 1.5rem;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 10c8 10 8 20 0 30-8-10-8-20 0-30zm0 30c8 10 8 20 0 30-8-10-8-20 0-30zM10 40c10-8 20-8 30 0-10 8-20 8-30 0zm30 0c10-8 20-8 30 0-10 8-20 8-30 0z' fill='%23D4A574' fill-opacity='0.07'/%3E%3C/svg%3E");
+}
+.hero::after {
+  content: ""; position: absolute; right: -40px; top: -40px;
+  width: 280px; height: 280px; border-radius: 50%; border: 40px solid rgba(212,165,116,0.08);
+}
+.hero-inner { position: relative; max-width: 1200px; margin: 0 auto; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: rgba(212,165,116,0.2); border: 1px solid rgba(212,165,116,0.4);
+  color: var(--gold-light); padding: .3rem .9rem; border-radius: 999px;
+  font-size: .78rem; letter-spacing: .08em; margin-bottom: 1rem;
+}
+.hero h1 { color: #FFF; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; line-height: 1.3; margin-bottom: .5rem; }
+.hero h1 span { color: var(--gold); }
+.hero-sub { color: rgba(247,242,234,0.75); font-size: 1rem; max-width: 560px; margin-bottom: 1.5rem; }
+.hero-pills { display: flex; flex-wrap: wrap; gap: .5rem; }
+.hero-pill {
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  padding: .4rem .85rem; border-radius: 8px; font-size: .82rem;
+  display: flex; align-items: center; gap: .4rem;
+}
+.hero-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.hero-accent-bar {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+  background: linear-gradient(180deg, var(--vermillion), var(--gold), var(--wisteria));
+}
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.panel { display: none; animation: fadeIn .35s ease; }
+.panel.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.kpi-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem; margin-bottom: 1.5rem; margin-top: -2.5rem; position: relative; z-index: 2;
+}
+.kpi {
+  background: var(--washi-card); border-radius: var(--radius); padding: 1.15rem 1.25rem;
+  box-shadow: var(--shadow); border: 1px solid var(--line); position: relative; overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+.kpi:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.kpi::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  background: var(--accent, var(--indigo)); border-radius: 4px 0 0 4px;
+}
+.kpi-label { font-size: .72rem; color: var(--ink-faint); letter-spacing: .06em; margin-bottom: .35rem; }
+.kpi-value { font-family: "Noto Serif JP", serif; font-size: 1.55rem; color: var(--indigo); font-weight: 700; line-height: 1.2; }
+.kpi-hint { font-size: .75rem; color: var(--ink-muted); margin-top: .25rem; }
+.kpi[data-a="ver"] { --accent: var(--vermillion); }
+.kpi[data-a="gold"] { --accent: var(--gold); }
+.kpi[data-a="moss"] { --accent: var(--moss); }
+.kpi[data-a="wis"] { --accent: var(--wisteria); }
+.kpi[data-a="ind"] { --accent: var(--indigo); }
+.sec-head { display: flex; align-items: center; justify-content: space-between; margin: 2rem 0 1rem; flex-wrap: wrap; gap: .75rem; }
+.sec-head h2 { font-size: 1.35rem; display: flex; align-items: center; gap: .6rem; }
+.sec-head h2 .jp {
+  font-size: .75rem; color: var(--gold); font-weight: 400; writing-mode: vertical-rl;
+  letter-spacing: .15em; border-left: 2px solid var(--gold); padding-left: .4rem; height: 1.6em;
+}
+.sec-head .tag { font-size: .75rem; background: var(--washi-warm); color: var(--ink-muted); padding: .25rem .7rem; border-radius: 999px; border: 1px solid var(--line); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+@media (max-width: 900px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .nav-meta { display: none; }
+  .nav-tab { padding: .45rem .7rem; font-size: .8rem; }
+}
+.card {
+  background: var(--washi-card); border-radius: var(--radius); border: 1px solid var(--line);
+  box-shadow: var(--shadow); padding: 1.35rem; position: relative;
+}
+.card-title {
+  font-family: "Noto Serif JP", serif; font-size: 1.05rem; color: var(--indigo);
+  margin-bottom: .85rem; display: flex; align-items: center; gap: .5rem;
+}
+.card-title .ico {
+  width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center;
+  font-size: .85rem; background: var(--washi-warm); flex-shrink: 0;
+}
+.cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; }
+.cal-dow { font-size: .7rem; color: var(--ink-faint); padding: .4rem 0; font-weight: 500; }
+.cal-day {
+  aspect-ratio: 1; border-radius: 10px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; font-size: .85rem;
+  color: var(--ink-muted); position: relative; background: var(--washi); border: 1px solid transparent;
+}
+.cal-day.empty { background: transparent; }
+.cal-day.trip {
+  background: linear-gradient(145deg, var(--indigo), var(--indigo-soft));
+  color: #fff; font-weight: 600; border: none; box-shadow: 0 3px 10px rgba(27,42,74,.25); cursor: pointer;
+}
+.cal-day.trip:hover { transform: scale(1.06); }
+.cal-day.trip .dlabel { font-size: .55rem; opacity: .85; margin-top: 1px; }
+.cal-day.locked::after { content: "◉"; position: absolute; top: 2px; right: 4px; font-size: .5rem; color: var(--gold); }
+.cal-legend { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; font-size: .75rem; color: var(--ink-muted); }
+.cal-legend span { display: flex; align-items: center; gap: .35rem; }
+.cal-legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.map-svg { width: 100%; height: auto; max-height: 380px; }
+.map-legend { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .75rem; font-size: .75rem; }
+.map-legend span {
+  display: inline-flex; align-items: center; gap: .3rem;
+  background: var(--washi); padding: .2rem .55rem; border-radius: 6px; border: 1px solid var(--line);
+}
+.map-legend .swatch { width: 10px; height: 10px; border-radius: 50%; }
+.intensity-bars { display: flex; flex-direction: column; gap: .55rem; }
+.ibar { display: grid; grid-template-columns: 48px 1fr 36px; align-items: center; gap: .6rem; }
+.ibar-label { font-size: .78rem; font-weight: 600; color: var(--indigo); }
+.ibar-track { height: 14px; background: var(--washi-warm); border-radius: 999px; overflow: hidden; border: 1px solid var(--line); }
+.ibar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--moss-light), var(--gold), var(--vermillion)); }
+.ibar-val { font-size: .72rem; color: var(--ink-faint); text-align: right; }
+.donut-wrap { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
+.donut-legend { font-size: .8rem; color: var(--ink-muted); }
+.donut-legend div { display: flex; align-items: center; gap: .4rem; margin: .3rem 0; }
+.donut-legend i { width: 10px; height: 10px; border-radius: 2px; }
+.info-list { list-style: none; }
+.info-list li { display: flex; gap: .75rem; padding: .65rem 0; border-bottom: 1px dashed var(--line); font-size: .9rem; }
+.info-list li:last-child { border-bottom: none; }
+.info-list .ilabel { flex-shrink: 0; width: 72px; font-size: .72rem; font-weight: 600; color: var(--wisteria); padding-top: .15rem; }
+.warn-box {
+  background: linear-gradient(135deg, rgba(196,92,74,0.08), rgba(196,92,74,0.03));
+  border: 1px solid rgba(196,92,74,0.3); border-left: 4px solid var(--vermillion);
+  border-radius: var(--radius-sm); padding: .9rem 1rem; margin-top: 1rem; font-size: .85rem;
+}
+.warn-box strong { color: var(--vermillion); }
+.lock-box {
+  background: linear-gradient(135deg, rgba(90,107,74,0.1), rgba(90,107,74,0.03));
+  border: 1px solid rgba(90,107,74,0.3); border-left: 4px solid var(--moss);
+  border-radius: var(--radius-sm); padding: .9rem 1rem; font-size: .85rem;
+}
+.open-box {
+  background: linear-gradient(135deg, rgba(212,165,116,0.12), rgba(212,165,116,0.03));
+  border: 1px solid rgba(212,165,116,0.4); border-left: 4px solid var(--gold);
+  border-radius: var(--radius-sm); padding: .9rem 1rem; font-size: .85rem;
+}
+.day-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
+.day-chip {
+  appearance: none; border: 1.5px solid var(--line); background: var(--washi-card);
+  padding: .55rem 1rem; border-radius: 999px; cursor: pointer; font-family: inherit;
+  font-size: .82rem; color: var(--ink-muted); transition: all .25s; font-weight: 500;
+  display: flex; align-items: center; gap: .4rem;
+}
+.day-chip:hover { border-color: var(--indigo); color: var(--indigo); }
+.day-chip.active { background: var(--indigo); color: #fff; border-color: var(--indigo); box-shadow: 0 3px 12px rgba(27,42,74,.22); }
+.day-chip .dn { font-family: "Noto Serif JP", serif; font-weight: 700; }
+.day-chip .dd { font-size: .7rem; opacity: .75; }
+.day-panel { display: none; }
+.day-panel.active { display: block; animation: fadeIn .3s ease; }
+.timeline { position: relative; padding-left: 1.75rem; }
+.timeline::before {
+  content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px;
+  background: linear-gradient(180deg, var(--indigo), var(--gold), var(--wisteria)); border-radius: 2px;
+}
+.tl-item {
+  position: relative; margin-bottom: 1.1rem; padding: .85rem 1rem;
+  background: var(--washi); border-radius: var(--radius-sm); border: 1px solid var(--line);
+}
+.tl-item::before {
+  content: ""; position: absolute; left: -1.5rem; top: 1.1rem;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--washi-card); border: 3px solid var(--indigo); box-shadow: 0 0 0 3px var(--washi);
+}
+.tl-item.locked::before { border-color: var(--vermillion); background: var(--vermillion); }
+.tl-item.meal::before { border-color: var(--gold); background: var(--gold); }
+.tl-item.transit::before { border-color: var(--wisteria); background: var(--wisteria); }
+.tl-time { font-size: .72rem; font-weight: 700; color: var(--vermillion); margin-bottom: .2rem; }
+.tl-title { font-weight: 600; font-size: .95rem; color: var(--indigo); }
+.tl-desc { font-size: .82rem; color: var(--ink-muted); margin-top: .25rem; }
+.tl-tag {
+  display: inline-block; font-size: .65rem; padding: .15rem .45rem; border-radius: 4px;
+  margin-top: .4rem; margin-right: .3rem; background: var(--washi-warm); color: var(--ink-muted); font-weight: 500;
+}
+.tl-tag.lock { background: rgba(196,92,74,.12); color: var(--vermillion); }
+.tl-tag.warn { background: rgba(196,92,74,.15); color: var(--vermillion); }
+.tl-tag.pass { background: rgba(90,107,74,.12); color: var(--moss); }
+.day-header-bar { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.day-header-bar h3 { font-size: 1.3rem; }
+.day-header-bar .meta { font-size: .85rem; color: var(--ink-muted); }
+.intensity-badge { font-size: .75rem; padding: .3rem .7rem; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+.intensity-badge.high { background: rgba(196,92,74,.15); color: var(--vermillion); }
+.intensity-badge.med { background: rgba(212,165,116,.2); color: #9A6B3A; }
+.intensity-badge.low { background: rgba(90,107,74,.15); color: var(--moss); }
+.food-filters { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.25rem; }
+.ffilter {
+  appearance: none; border: 1.5px solid var(--line); background: var(--washi-card);
+  padding: .4rem .85rem; border-radius: 999px; cursor: pointer; font-family: inherit;
+  font-size: .8rem; color: var(--ink-muted); transition: all .2s;
+}
+.ffilter:hover { border-color: var(--gold); color: var(--indigo); }
+.ffilter.active { background: var(--gold); color: var(--indigo-deep); border-color: var(--gold); font-weight: 600; }
+.food-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.food-card {
+  background: var(--washi-card); border-radius: var(--radius); border: 1px solid var(--line);
+  overflow: hidden; box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s;
+  display: flex; flex-direction: column;
+}
+.food-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.food-card.hidden { display: none; }
+.food-top { height: 72px; display: flex; align-items: flex-end; padding: .85rem 1rem; position: relative; }
+.food-top.main { background: linear-gradient(135deg, #1B2A4A, #3A4F7A); }
+.food-top.sweet { background: linear-gradient(135deg, #8B7BA8, #B5A8D0); }
+.food-top.snack { background: linear-gradient(135deg, #C45C4A, #D4886A); }
+.food-top.bread { background: linear-gradient(135deg, #5A6B4A, #8A9B6A); }
+.food-cat-badge {
+  position: absolute; top: .6rem; right: .7rem; font-size: .65rem;
+  background: rgba(255,255,255,.2); color: #fff; padding: .15rem .5rem; border-radius: 999px;
+}
+.food-name { font-family: "Noto Serif JP", serif; color: #fff; font-size: 1.05rem; font-weight: 600; text-shadow: 0 1px 4px rgba(0,0,0,.2); }
+.food-body { padding: .9rem 1rem 1.1rem; flex: 1; display: flex; flex-direction: column; }
+.food-area { font-size: .75rem; color: var(--ink-faint); margin-bottom: .35rem; }
+.food-note { font-size: .82rem; color: var(--ink-muted); flex: 1; margin-bottom: .75rem; }
+.food-link {
+  display: inline-flex; align-items: center; gap: .35rem; font-size: .8rem; font-weight: 600;
+  color: var(--vermillion); padding: .4rem .7rem; border-radius: 8px;
+  background: rgba(196,92,74,.08); border: 1px solid rgba(196,92,74,.2); align-self: flex-start;
+}
+.food-link:hover { background: var(--vermillion); color: #fff; }
+.food-day-tag { font-size: .7rem; color: var(--wisteria); font-weight: 500; margin-bottom: .4rem; }
+.check-list { list-style: none; }
+.check-list li {
+  display: flex; align-items: flex-start; gap: .65rem; padding: .55rem 0;
+  border-bottom: 1px dashed var(--line); font-size: .88rem;
+}
+.check-list li:last-child { border-bottom: none; }
+.check-box {
+  width: 18px; height: 18px; border-radius: 5px; flex-shrink: 0; margin-top: 2px;
+  border: 2px solid var(--indigo); cursor: pointer; display: grid; place-items: center;
+  transition: all .2s; background: var(--washi-card);
+}
+.check-box.done { background: var(--moss); border-color: var(--moss); color: #fff; font-size: .7rem; }
+.check-status { font-size: .65rem; padding: .1rem .4rem; border-radius: 4px; margin-left: auto; white-space: nowrap; font-weight: 600; }
+.check-status.done-s { background: rgba(90,107,74,.15); color: var(--moss); }
+.check-status.open-s { background: rgba(212,165,116,.2); color: #9A6B3A; }
+.check-status.lock-s { background: rgba(196,92,74,.12); color: var(--vermillion); }
+.footer { text-align: center; padding: 2rem 1.5rem; color: var(--ink-faint); font-size: .78rem; border-top: 1px solid var(--line); margin-top: 2rem; }
+.footer .seal {
+  display: inline-block; width: 48px; height: 48px; border-radius: 50%;
+  border: 2px solid var(--gold); color: var(--gold); font-family: "Noto Serif JP", serif;
+  font-size: .9rem; line-height: 44px; margin-bottom: .75rem;
+}
+.mini-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; }
+.chip-sm { font-size: .72rem; padding: .25rem .6rem; border-radius: 6px; background: var(--washi); border: 1px solid var(--line); color: var(--ink-muted); }
+.chip-sm.hot { background: rgba(196,92,74,.1); border-color: rgba(196,92,74,.3); color: var(--vermillion); }
+.chip-sm.ok { background: rgba(90,107,74,.1); border-color: rgba(90,107,74,.3); color: var(--moss); }
+.route-list { font-size: .85rem; }
+.route-list .rline { display: flex; align-items: center; gap: .5rem; padding: .4rem 0; border-bottom: 1px dashed var(--line); }
+.route-list .rline:last-child { border-bottom: none; }
+.route-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.two-col-day { display: grid; grid-template-columns: 1.2fr .8fr; gap: 1.25rem; }
+@media (max-width: 800px) { .two-col-day { grid-template-columns: 1fr; } .kpi-row { margin-top: -1.5rem; } }
+.seigaiha-accent {
+  height: 6px; border-radius: 3px; margin: 1.5rem 0; opacity: .35;
+  background: repeating-linear-gradient(90deg, var(--indigo) 0 8px, transparent 8px 12px, var(--gold) 12px 20px, transparent 20px 24px, var(--vermillion) 24px 32px, transparent 32px 36px, var(--wisteria) 36px 44px, transparent 44px 48px);
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand"><div class="crest">九</div><span>九州和風儀表板</span></div>
+  <div class="nav-tabs" role="tablist">
+    <button class="nav-tab active" data-panel="overview">概覽</button>
+    <button class="nav-tab" data-panel="schedule">日程</button>
+    <button class="nav-tab" data-panel="food">美食</button>
+    <button class="nav-tab" data-panel="notes">注意</button>
+  </div>
+  <div class="nav-meta"><strong>2026.11.24–30</strong>LAWRENCE LAU · 三人行</div>
+</nav>
+
+<header class="hero">
+  <div class="hero-accent-bar"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">✦ 九州自由行 · KYUSHU TRIP DASHBOARD</div>
+    <h1>博多為據點 · <span>七日慢旅</span></h1>
+    <p class="hero-sub">香港航空往返福岡 · All-Kyushu JR Pass 已購 · 親子三人 · 酒店暫定博多附近</p>
+    <div class="hero-pills">
+      <div class="hero-pill"><span class="dot"></span>HX638 08:15 HKG → 12:25 FUK</div>
+      <div class="hero-pill"><span class="dot"></span>HX641 14:45 FUK → 18:00 HKG</div>
+      <div class="hero-pill"><span class="dot"></span>前田屋 17:00 已鎖</div>
+      <div class="hero-pill"><span class="dot"></span>高千穗團 08:00 已鎖</div>
+      <div class="hero-pill"><span class="dot"></span>由布院 09:17 / 15:56</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<section id="panel-overview" class="panel active">
+  <div class="kpi-row">
+    <div class="kpi" data-a="ind"><div class="kpi-label">行程日數</div><div class="kpi-value">7 日</div><div class="kpi-hint">11/24 – 11/30</div></div>
+    <div class="kpi" data-a="ver"><div class="kpi-label">同行人數</div><div class="kpi-value">3 人</div><div class="kpi-hint">本人 + 父母</div></div>
+    <div class="kpi" data-a="gold"><div class="kpi-label">已鎖定事項</div><div class="kpi-value">4 項</div><div class="kpi-hint">航班・前田屋・高千穗・由布院</div></div>
+    <div class="kpi" data-a="moss"><div class="kpi-label">JR 通票</div><div class="kpi-value">全九州</div><div class="kpi-hint">巴士亦可 · 不含山陽新幹線</div></div>
+    <div class="kpi" data-a="wis"><div class="kpi-label">待辦開放</div><div class="kpi-value">4 項</div><div class="kpi-hint">燒肉・黑豬・酒店・集合點</div></div>
+    <div class="kpi" data-a="ver"><div class="kpi-label">據點</div><div class="kpi-value">博多</div><div class="kpi-hint">酒店名稱待定</div></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="ico">📅</span> 2026 年 11 月行程熱力曆</div>
+      <div class="cal" id="nov-cal">
+        <div class="cal-dow">日</div><div class="cal-dow">一</div><div class="cal-dow">二</div><div class="cal-dow">三</div><div class="cal-dow">四</div><div class="cal-dow">五</div><div class="cal-dow">六</div>
+        <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div>
+        <div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div><div class="cal-day">13</div>
+        <div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div><div class="cal-day">20</div>
+        <div class="cal-day">21</div><div class="cal-day">22</div><div class="cal-day">23</div>
+        <div class="cal-day trip locked" data-day="1">24<span class="dlabel">D1 抵</span></div>
+        <div class="cal-day trip locked" data-day="2">25<span class="dlabel">D2 高</span></div>
+        <div class="cal-day trip locked" data-day="3">26<span class="dlabel">D3 由</span></div>
+        <div class="cal-day trip" data-day="4">27<span class="dlabel">D4 倉</span></div>
+        <div class="cal-day trip" data-day="5">28<span class="dlabel">D5 鹿</span></div>
+        <div class="cal-day trip" data-day="6">29<span class="dlabel">D6 休</span></div>
+        <div class="cal-day trip" data-day="7">30<span class="dlabel">D7 回</span></div>
+      </div>
+      <div class="cal-legend">
+        <span><i style="background:linear-gradient(145deg,#1B2A4A,#2A3F66)"></i> 行程日</span>
+        <span><i style="background:#C45C4A"></i> ◉ 有鎖定時段</span>
+        <span><i style="background:#F7F2EA;border:1px solid #E5DDD0"></i> 一般日期</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="ico">🗺</span> 九州樞紐路線圖 · 以博多為心</div>
+      <svg class="map-svg" viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg" aria-label="九州路線圖">
+        <rect width="480" height="340" fill="#F7F2EA" rx="12"/>
+        <defs>
+          <pattern id="seig" width="40" height="20" patternUnits="userSpaceOnUse">
+            <path d="M0 20 Q10 0 20 20 Q30 0 40 20" fill="none" stroke="#1B2A4A" stroke-opacity="0.04" stroke-width="1"/>
+          </pattern>
+          <filter id="glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <rect width="480" height="340" fill="url(#seig)" rx="12"/>
+        <path d="M240 145 Q300 180 320 230" fill="none" stroke="#C45C4A" stroke-width="2.5" stroke-dasharray="6 4" opacity="0.85"/>
+        <path d="M240 145 Q310 130 360 120" fill="none" stroke="#D4A574" stroke-width="2.5" opacity="0.9"/>
+        <path d="M240 145 Q280 90 310 70" fill="none" stroke="#8B7BA8" stroke-width="2.5" opacity="0.9"/>
+        <path d="M240 145 Q230 220 250 280" fill="none" stroke="#5A6B4A" stroke-width="2.5" stroke-dasharray="6 4" opacity="0.85"/>
+        <path d="M240 145 Q220 160 205 175" fill="none" stroke="#2A3F66" stroke-width="2" opacity="0.7"/>
+        <circle cx="240" cy="145" r="22" fill="#1B2A4A" filter="url(#glow)"/>
+        <circle cx="240" cy="145" r="14" fill="#D4A574"/>
+        <text x="240" y="149" text-anchor="middle" fill="#1B2A4A" font-size="11" font-weight="700">博</text>
+        <text x="240" y="178" text-anchor="middle" fill="#1B2A4A" font-size="11" font-weight="600">博多 / 福岡</text>
+        <text x="240" y="192" text-anchor="middle" fill="#8A857A" font-size="9">HUB · D1–D7 據點</text>
+        <circle cx="320" cy="230" r="12" fill="#C45C4A"/>
+        <text x="320" y="234" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">高</text>
+        <text x="355" y="228" fill="#C45C4A" font-size="11" font-weight="600">高千穗</text>
+        <text x="355" y="242" fill="#8A857A" font-size="9">D2 一日團</text>
+        <circle cx="360" cy="120" r="12" fill="#D4A574"/>
+        <text x="360" y="124" text-anchor="middle" fill="#1B2A4A" font-size="9" font-weight="700">由</text>
+        <text x="378" y="116" fill="#9A6B3A" font-size="11" font-weight="600">由布院</text>
+        <text x="378" y="130" fill="#8A857A" font-size="9">D3 · 09:17/15:56</text>
+        <circle cx="310" cy="70" r="12" fill="#8B7BA8"/>
+        <text x="310" y="74" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">倉</text>
+        <text x="328" y="66" fill="#8B7BA8" font-size="11" font-weight="600">小倉</text>
+        <text x="328" y="80" fill="#8A857A" font-size="9">D4 午前 · Sonic</text>
+        <circle cx="205" cy="175" r="10" fill="#2A3F66"/>
+        <text x="205" y="179" text-anchor="middle" fill="#fff" font-size="8" font-weight="700">天</text>
+        <text x="160" y="180" text-anchor="end" fill="#2A3F66" font-size="11" font-weight="600">天神</text>
+        <text x="160" y="194" text-anchor="end" fill="#8A857A" font-size="9">D4 午後</text>
+        <circle cx="250" cy="280" r="12" fill="#5A6B4A"/>
+        <text x="250" y="284" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">鹿</text>
+        <text x="270" y="278" fill="#5A6B4A" font-size="11" font-weight="600">鹿兒島</text>
+        <text x="270" y="292" fill="#8A857A" font-size="9">D5 早出早回</text>
+        <text x="40" y="40" fill="#1B2A4A" font-size="10" font-weight="600">✈ HX638 / HX641</text>
+        <text x="40" y="54" fill="#8A857A" font-size="9">香港航空 · 非 UO</text>
+        <text x="40" y="320" fill="#8A857A" font-size="9">虛線 = 一日團 / 長途日</text>
+      </svg>
+      <div class="map-legend">
+        <span><i class="swatch" style="background:#1B2A4A"></i>博多樞紐</span>
+        <span><i class="swatch" style="background:#C45C4A"></i>高千穗 D2</span>
+        <span><i class="swatch" style="background:#D4A574"></i>由布院 D3</span>
+        <span><i class="swatch" style="background:#8B7BA8"></i>小倉 D4</span>
+        <span><i class="swatch" style="background:#5A6B4A"></i>鹿兒島 D5</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="seigaiha-accent"></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="ico">📊</span> 每日移動負荷</div>
+      <div class="intensity-bars">
+        <div class="ibar"><span class="ibar-label">D1 抵</span><div class="ibar-track"><div class="ibar-fill" style="width:35%"></div></div><span class="ibar-val">低</span></div>
+        <div class="ibar"><span class="ibar-label">D2 高</span><div class="ibar-track"><div class="ibar-fill" style="width:90%"></div></div><span class="ibar-val">高</span></div>
+        <div class="ibar"><span class="ibar-label">D3 由</span><div class="ibar-track"><div class="ibar-fill" style="width:70%"></div></div><span class="ibar-val">中高</span></div>
+        <div class="ibar"><span class="ibar-label">D4 倉</span><div class="ibar-track"><div class="ibar-fill" style="width:65%"></div></div><span class="ibar-val">中</span></div>
+        <div class="ibar"><span class="ibar-label">D5 鹿</span><div class="ibar-track"><div class="ibar-fill" style="width:95%"></div></div><span class="ibar-val">高</span></div>
+        <div class="ibar"><span class="ibar-label">D6 休</span><div class="ibar-track"><div class="ibar-fill" style="width:15%"></div></div><span class="ibar-val">極低</span></div>
+        <div class="ibar"><span class="ibar-label">D7 回</span><div class="ibar-track"><div class="ibar-fill" style="width:40%"></div></div><span class="ibar-val">低</span></div>
+      </div>
+      <p style="font-size:.78rem;color:var(--ink-faint);margin-top:1rem">父母同行建議：D2／D5 預留休息節奏，D6 完全放空。</p>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="ico">✈</span> 航班與通票</div>
+      <ul class="info-list">
+        <li><span class="ilabel">去程</span><div><strong>香港航空 HX638</strong><br>約 08:15 香港 → 約 12:25 福岡<br><span style="font-size:.78rem;color:var(--ink-faint)">⚠ 非香港快運 UO</span></div></li>
+        <li><span class="ilabel">回程</span><div><strong>香港航空 HX641</strong><br>約 14:45 福岡 → 約 18:00 香港<br><span style="font-size:.78rem;color:var(--ink-faint)">D7 中午前退房出發</span></div></li>
+        <li><span class="ilabel">JR Pass</span><div><strong>All-Kyushu Pass 已購</strong><br>九州內 JR 特急可用 · 巴士亦可<br><span style="font-size:.78rem;color:var(--vermillion)">不含山陽新幹線（勿搭 Sanyo）</span></div></li>
+        <li><span class="ilabel">酒店</span><div>博多附近 · <strong>名稱待定</strong></div></li>
+      </ul>
+      <div class="warn-box"><strong>⚠ D4 關鍵提醒：</strong> 小倉往返請只使用 <strong>Sonic／Kirameki</strong>（JR 特急，通票適用）。切勿誤搭山陽新幹線（Sanyo Shinkansen），該段不在 All-Kyushu Pass 涵蓋範圍。</div>
+    </div>
+  </div>
+
+  <div class="sec-head"><h2>鎖定與待辦 <span class="jp">況</span></h2><span class="tag">狀態一覽</span></div>
+  <div class="grid-3">
+    <div class="lock-box"><strong style="color:var(--moss)">✓ 已鎖定</strong>
+      <ul style="margin-top:.5rem;padding-left:1.1rem;font-size:.85rem;line-height:1.7">
+        <li>前田屋 博多店 · D1 17:00</li>
+        <li>高千穗一日團 · D2 08:00</li>
+        <li>由布院去程 09:17 · 回程 15:56（D3）</li>
+        <li>航班 HX638 / HX641</li>
+        <li>All-Kyushu JR Pass</li>
+      </ul>
+    </div>
+    <div class="open-box"><strong style="color:#9A6B3A">○ 尚待確認</strong>
+      <ul style="margin-top:.5rem;padding-left:1.1rem;font-size:.85rem;line-height:1.7">
+        <li>D2 燒肉訂位（19:30 後）— 牛太本陣／チャンピオン</li>
+        <li>D5 鹿兒島黑豬料理訂位</li>
+        <li>酒店名稱與地址</li>
+        <li>高千穗團集合地點</li>
+      </ul>
+    </div>
+    <div class="warn-box" style="margin-top:0"><strong>通行規則</strong>
+      <ul style="margin-top:.5rem;padding-left:1.1rem;font-size:.85rem;line-height:1.7">
+        <li>D4 只用 Sonic／Kirameki</li>
+        <li>禁止山陽新幹線（通票無效）</li>
+        <li>巴士可作為輔助移動</li>
+        <li>D5 早出早回，預留緩衝</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="panel-schedule" class="panel">
+  <div class="sec-head"><h2>七日詳細日程 <span class="jp">歷</span></h2><span class="tag">點選日子檢視時間軸</span></div>
+  <div class="day-chips" id="day-chips">
+    <button class="day-chip active" data-day="1"><span class="dn">D1</span><span class="dd">11/24 抵達</span></button>
+    <button class="day-chip" data-day="2"><span class="dn">D2</span><span class="dd">11/25 高千穗</span></button>
+    <button class="day-chip" data-day="3"><span class="dn">D3</span><span class="dd">11/26 由布院</span></button>
+    <button class="day-chip" data-day="4"><span class="dn">D4</span><span class="dd">11/27 小倉・天神</span></button>
+    <button class="day-chip" data-day="5"><span class="dn">D5</span><span class="dd">11/28 鹿兒島</span></button>
+    <button class="day-chip" data-day="6"><span class="dn">D6</span><span class="dd">11/29 休息</span></button>
+    <button class="day-chip" data-day="7"><span class="dn">D7</span><span class="dd">11/30 回港</span></button>
+  </div>
+
+  <div class="day-panel active" data-day-panel="1">
+    <div class="day-header-bar">
+      <div><h3>D1 · 11/24（二）抵達博多慢遊 + 前田屋</h3><div class="meta">抵達日 · 節奏放緩 · 晚間鎖定拉麵</div></div>
+      <span class="intensity-badge low">移動負荷 · 低</span>
+    </div>
+    <div class="two-col-day">
+      <div class="timeline">
+        <div class="tl-item transit"><div class="tl-time">約 08:15</div><div class="tl-title">香港起飛 · HX638</div><div class="tl-desc">香港航空（非 UO）· 建議提前 2 小時到場</div><span class="tl-tag lock">已鎖定</span></div>
+        <div class="tl-item transit"><div class="tl-time">約 12:25</div><div class="tl-title">抵達福岡機場 → 轉地鐵往博多</div><div class="tl-desc">機場線約 10 分鐘到博多駅 · 辦理入住／寄放行李</div><span class="tl-tag pass">JR / 地鐵</span></div>
+        <div class="tl-item"><div class="tl-time">午後</div><div class="tl-title">博多慢遊 · 運河城／車站周邊</div><div class="tl-desc">可順路逛 DACOMECCA、THE FULL FULL HAKATA；或 Canal City 休息</div><span class="tl-tag">輕鬆散步</span></div>
+        <div class="tl-item meal locked"><div class="tl-time">17:00</div><div class="tl-title">前田屋 博多店 · 晚餐</div><div class="tl-desc">博多拉麵名店 · 三人已訂 · 準時到達</div><span class="tl-tag lock">鎖定 17:00</span>
+          <a class="tl-tag" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x354191b8cf465de3:0xba51a47ac9a69d30" target="_blank" rel="noopener">📍 Maps</a></div>
+        <div class="tl-item"><div class="tl-time">晚間</div><div class="tl-title">返回酒店休息 · 準備明日早出發</div><div class="tl-desc">D2 高千穗團 08:00 集合，今晚早睡</div></div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:1rem"><div class="card-title">今日重點</div>
+          <div class="mini-row"><span class="chip-sm hot">前田屋 17:00</span><span class="chip-sm ok">慢節奏</span><span class="chip-sm">三人</span></div>
+          <p style="font-size:.85rem;margin-top:.85rem;color:var(--ink-muted)">抵達後勿趕行程。先安頓行李，下午輕逛，把力氣留給晚上拉麵與翌日長途。</p>
+        </div>
+        <div class="card"><div class="card-title">建議美食</div>
+          <div class="route-list">
+            <div class="rline"><span class="route-dot" style="background:#C45C4A"></span>前田屋（必食・已訂）</div>
+            <div class="rline"><span class="route-dot" style="background:#5A6B4A"></span>THE FULL FULL / DACOMECCA</div>
+            <div class="rline"><span class="route-dot" style="background:#8B7BA8"></span>備選：ShinShin、節ちゃん</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-panel" data-day-panel="2">
+    <div class="day-header-bar">
+      <div><h3>D2 · 11/25（三）高千穗一日團 + 晚燒肉</h3><div class="meta">長途日 · 早出晚歸 · 燒肉訂位待開</div></div>
+      <span class="intensity-badge high">移動負荷 · 高</span>
+    </div>
+    <div class="two-col-day">
+      <div class="timeline">
+        <div class="tl-item locked"><div class="tl-time">08:00</div><div class="tl-title">高千穗一日團集合出發</div><div class="tl-desc">集合地點待確認（TBD）· 請預留緩衝</div><span class="tl-tag lock">鎖定 08:00</span><span class="tl-tag warn">集合點 TBD</span></div>
+        <div class="tl-item"><div class="tl-time">日間</div><div class="tl-title">高千穗峽 · 神社 · 神話景點巡禮</div><div class="tl-desc">團行程為主 · 可留意銀橋（蕎麥）等當地小食</div>
+          <a class="tl-tag" href="https://www.google.com/maps/search/?api=1&query=%E3%81%9D%E3%81%B0%E5%87%A6%E9%8A%80%E6%A9%8B%20%E5%AE%AE%E5%B4%8E%E7%9C%8C%E8%A5%BF%E8%87%BC%E6%9D%B5%E9%83%A1%E9%AB%98%E5%8D%83%E7%A9%82%E7%94%BA%E6%8A%BC%E6%96%B91248-2" target="_blank" rel="noopener">銀橋 Maps</a></div>
+        <div class="tl-item transit"><div class="tl-time">傍晚</div><div class="tl-title">返回博多</div><div class="tl-desc">預計傍晚回到據點 · 稍作休整再赴燒肉</div></div>
+        <div class="tl-item meal"><div class="tl-time">19:30 之後</div><div class="tl-title">燒肉晚餐 · 待訂位</div><div class="tl-desc">候補：焼肉の牛太 本陣／焼肉チャンピオン JR博多シティ</div><span class="tl-tag warn">待訂位</span>
+          <a class="tl-tag" href="https://g.page/honjin_yd?share" target="_blank" rel="noopener">牛太</a>
+          <a class="tl-tag" href="https://www.google.com/maps/place/?q=place_id:ChIJBVmI6seRQTURT3Xk9Lpj52M" target="_blank" rel="noopener">チャンピオン</a></div>
+      </div>
+      <div>
+        <div class="open-box"><strong>○ 待辦</strong><p style="margin-top:.4rem;font-size:.85rem">1) 確認一日團集合點<br>2) 燒肉訂 19:30 後三人位<br>3) 準備舒適步行鞋與薄外套</p></div>
+        <div class="card" style="margin-top:1rem"><div class="card-title">體力提示</div><p style="font-size:.85rem;color:var(--ink-muted)">本日負荷最高之一。父母同行宜在車上補眠，晚餐選座位舒適的燒肉店。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-panel" data-day-panel="3">
+    <div class="day-header-bar">
+      <div><h3>D3 · 11/26（四）由布院一日</h3><div class="meta">電車往返鎖定 · 溫泉街慢逛 · まぶし／甜品</div></div>
+      <span class="intensity-badge med">移動負荷 · 中高</span>
+    </div>
+    <div class="two-col-day">
+      <div class="timeline">
+        <div class="tl-item transit locked"><div class="tl-time">09:17</div><div class="tl-title">博多出發 → 由布院</div><div class="tl-desc">鎖定列車 · 請提早到月台</div><span class="tl-tag lock">鎖定 09:17</span><span class="tl-tag pass">All-Kyushu Pass</span></div>
+        <div class="tl-item"><div class="tl-time">午前～午後</div><div class="tl-title">由布院漫步 · 金鱗湖／湯之坪街道</div><div class="tl-desc">麵包：みっふぃー、こちょぱん、CAFE LA RUCHE；小食：金賞コロッケ、吉吾、醤油屋本店</div></div>
+        <div class="tl-item meal"><div class="tl-time">午餐建議</div><div class="tl-title">由布まぶし 心</div><div class="tl-desc">金鱗湖本店或駅前支店</div>
+          <a class="tl-tag" href="https://goo.gl/maps/tNEwrnwCQ9ZqM2ES7" target="_blank" rel="noopener">金鱗湖本店</a>
+          <a class="tl-tag" href="https://goo.gl/maps/7rYMYWHNJtYQ1uAn6" target="_blank" rel="noopener">駅前支店</a></div>
+        <div class="tl-item meal"><div class="tl-time">甜品時段</div><div class="tl-title">Milch · B-speak · 花麹菊家 · cucuchi</div><div class="tl-desc">依排隊情況彈性選擇</div></div>
+        <div class="tl-item transit locked"><div class="tl-time">15:56</div><div class="tl-title">由布院返博多</div><div class="tl-desc">鎖定回程 · 預留買伴手禮時間</div><span class="tl-tag lock">鎖定 15:56</span></div>
+      </div>
+      <div>
+        <div class="lock-box"><strong>✓ 列車已鎖</strong><p style="margin-top:.4rem;font-size:.85rem">去 09:17 · 回 15:56<br>三人同行建議同車廂劃位。</p></div>
+        <div class="card" style="margin-top:1rem"><div class="card-title">由布院美食地圖</div>
+          <div class="route-list">
+            <div class="rline"><span class="route-dot" style="background:#C45C4A"></span>まぶし 心（主食）</div>
+            <div class="rline"><span class="route-dot" style="background:#8B7BA8"></span>Milch / B-speak / 菊家</div>
+            <div class="rline"><span class="route-dot" style="background:#D4A574"></span>金賞コロッケ · 吉吾</div>
+            <div class="rline"><span class="route-dot" style="background:#5A6B4A"></span>みっふぃー · こちょぱん</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-panel" data-day-panel="4">
+    <div class="day-header-bar">
+      <div><h3>D4 · 11/27（五）小倉午前 · 天神午後</h3><div class="meta">Sonic／Kirameki only · 嚴禁山陽新幹線</div></div>
+      <span class="intensity-badge med">移動負荷 · 中</span>
+    </div>
+    <div class="warn-box" style="margin-bottom:1.25rem"><strong>⚠ 通票紅線：</strong>小倉區間只可乘坐 <strong>特急 Sonic 或 Kirameki</strong>。山陽新幹線（Nozomi／Sakura／Mizuho 等 Sanyo 路段）<strong>不在 All-Kyushu Pass 範圍</strong>，誤乘需另付全額。</div>
+    <div class="two-col-day">
+      <div class="timeline">
+        <div class="tl-item transit"><div class="tl-time">午前</div><div class="tl-title">博多 → 小倉（Sonic / Kirameki）</div><div class="tl-desc">約 15–20 分鐘特急 · 出示 All-Kyushu Pass</div><span class="tl-tag pass">Sonic／Kirameki</span><span class="tl-tag warn">禁用 Sanyo 新幹線</span></div>
+        <div class="tl-item meal"><div class="tl-time">小倉美食</div><div class="tl-title">だるま堂 · あぢもり · 小倉かまぼこ</div><div class="tl-desc">燒咖哩／海鮮／魚板名物</div>
+          <a class="tl-tag" href="https://www.google.com/maps/place/%E3%81%A0%E3%82%8B%E3%81%BE%E5%A0%82/@33.884556,130.880671,17z" target="_blank" rel="noopener">だるま堂</a>
+          <a class="tl-tag" href="https://goo.gl/maps/8wjKNpbrreQ2" target="_blank" rel="noopener">あぢもり</a>
+          <a class="tl-tag" href="https://maps.app.goo.gl/W6A1V7pDbmsA15cs8" target="_blank" rel="noopener">かまぼこ</a></div>
+        <div class="tl-item transit"><div class="tl-time">午後</div><div class="tl-title">返回福岡 · 天神逛街</div><div class="tl-desc">天神地下街、百貨、咖啡歇腳</div></div>
+        <div class="tl-item meal"><div class="tl-time">晚餐備選</div><div class="tl-title">楽天地 · ShinShin · 節ちゃん · おたに家</div><div class="tl-desc">天神／博多區彈性選擇</div></div>
+      </div>
+      <div class="card"><div class="card-title">交通檢查清單</div>
+        <ul class="check-list">
+          <li><div class="check-box" onclick="toggleCheck(this)"></div><span>確認 Sonic／Kirameki 時刻表</span></li>
+          <li><div class="check-box" onclick="toggleCheck(this)"></div><span>月台勿走上新幹線專用閘口</span></li>
+          <li><div class="check-box" onclick="toggleCheck(this)"></div><span>Pass 隨身、三人同行同進閘</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-panel" data-day-panel="5">
+    <div class="day-header-bar">
+      <div><h3>D5 · 11/28（六）鹿兒島一日 · 早出早回</h3><div class="meta">長途特急日 · 黑豬訂位待開 · 櫻島景色</div></div>
+      <span class="intensity-badge high">移動負荷 · 高</span>
+    </div>
+    <div class="two-col-day">
+      <div class="timeline">
+        <div class="tl-item transit"><div class="tl-time">清晨</div><div class="tl-title">博多早發 → 鹿兒島中央</div><div class="tl-desc">JR 特急（通票適用）· 建議盡早出發</div><span class="tl-tag pass">All-Kyushu Pass</span></div>
+        <div class="tl-item"><div class="tl-time">日間</div><div class="tl-title">鹿兒島市區／碼頭望櫻島</div><div class="tl-desc">可搭配天文館通散步；小食：揚立屋</div>
+          <a class="tl-tag" href="https://goo.gl/maps/g1H1atPz9TQS9btb9" target="_blank" rel="noopener">揚立屋</a></div>
+        <div class="tl-item meal"><div class="tl-time">午餐 · 待訂</div><div class="tl-title">黑豬料理 · 熊襲亭 等</div><div class="tl-desc">黑豬燒肉／定食 · 三人訂位尚未確認</div><span class="tl-tag warn">黑豬訂位 TBD</span>
+          <a class="tl-tag" href="https://goo.gl/maps/VAtS7twtCJ1coVFi8" target="_blank" rel="noopener">熊襲亭</a></div>
+        <div class="tl-item meal"><div class="tl-time">甜品</div><div class="tl-title">むじゃき · 白熊冰</div><div class="tl-desc">鹿兒島名物白熊 · 天氣涼可分享一份</div>
+          <a class="tl-tag" href="https://www.google.com/maps?cid=16284883595691039858" target="_blank" rel="noopener">むじゃき Maps</a></div>
+        <div class="tl-item transit"><div class="tl-time">午後偏早</div><div class="tl-title">早回博多</div><div class="tl-desc">預留誤點緩衝 · 照顧長輩體力</div></div>
+      </div>
+      <div>
+        <div class="open-box"><strong>○ 待辦 · 黑豬訂位</strong><p style="margin-top:.4rem;font-size:.85rem">請盡早為 D5 午／晚黑豬餐廳訂三人位（熊襲亭或其他）。</p></div>
+        <div class="card" style="margin-top:1rem"><div class="card-title">節奏建議</div><p style="font-size:.85rem;color:var(--ink-muted)">與 D2 同屬高負荷日。若父母狀態不佳，可縮短市區時間，以一餐一景為主。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-panel" data-day-panel="6">
+    <div class="day-header-bar">
+      <div><h3>D6 · 11/29（日）自由休息</h3><div class="meta">完全放空 · 博多周邊隨心 · 補眠購物</div></div>
+      <span class="intensity-badge low">移動負荷 · 極低</span>
+    </div>
+    <div class="two-col-day">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-time">彈性</div><div class="tl-title">晚起 · 酒店早餐或附近咖啡</div><div class="tl-desc">無鎖定行程 · 以恢復體力為優先</div></div>
+        <div class="tl-item"><div class="tl-time">午前／午後</div><div class="tl-title">博多／天神輕度活動（可選）</div><div class="tl-desc">買伴手禮、藥妝、再訪麵包店；亦可整天留在酒店</div></div>
+        <div class="tl-item meal"><div class="tl-time">三餐彈性</div><div class="tl-title">楽天地 · ShinShin · 節ちゃん · おたに家</div><div class="tl-desc">走到哪吃到哪 · 不必勉強排隊</div></div>
+        <div class="tl-item"><div class="tl-time">晚間</div><div class="tl-title">整理行李 · 確認回程證件與航班</div><div class="tl-desc">HX641 中午前退房預留；檢查護照</div></div>
+      </div>
+      <div class="lock-box"><strong>✓ 今日無硬性鎖定</strong><p style="margin-top:.4rem;font-size:.85rem">這是為父母與長途日設計的緩衝日。不必為「沒排滿」感到可惜。</p></div>
+    </div>
+  </div>
+
+  <div class="day-panel" data-day-panel="7">
+    <div class="day-header-bar">
+      <div><h3>D7 · 11/30（一）回港</h3><div class="meta">中午前離酒店 · HX641 午後起飛</div></div>
+      <span class="intensity-badge low">移動負荷 · 低</span>
+    </div>
+    <div class="two-col-day">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-time">午前</div><div class="tl-title">退房 · 寄物或直接赴機場</div><div class="tl-desc">中午前離開酒店</div><span class="tl-tag">退房緩衝</span></div>
+        <div class="tl-item meal"><div class="tl-time">機場前／機場</div><div class="tl-title">簡易午餐或機場餐</div><div class="tl-desc">勿吃太趕 · 預留安檢時間</div></div>
+        <div class="tl-item transit locked"><div class="tl-time">約 14:45</div><div class="tl-title">福岡起飛 · HX641</div><div class="tl-desc">香港航空 · 約 18:00 抵港</div><span class="tl-tag lock">鎖定航班</span></div>
+        <div class="tl-item"><div class="tl-time">約 18:00</div><div class="tl-title">抵達香港</div><div class="tl-desc">行程圓滿結束 ✦</div></div>
+      </div>
+      <div class="card"><div class="card-title">離境檢查</div>
+        <ul class="check-list">
+          <li><div class="check-box" onclick="toggleCheck(this)"></div><span>護照／回程登機證</span></li>
+          <li><div class="check-box" onclick="toggleCheck(this)"></div><span>酒店退房與鑰匙卡</span></li>
+          <li><div class="check-box" onclick="toggleCheck(this)"></div><span>伴手禮放入托運／手提</span></li>
+          <li><div class="check-box" onclick="toggleCheck(this)"></div><span>JR Pass 最後一日用途確認</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="panel-food" class="panel">
+  <div class="sec-head"><h2>美食地圖集 <span class="jp">味</span></h2><span class="tag">全部附 Google Maps 連結</span></div>
+  <div class="food-filters" id="food-filters">
+    <button class="ffilter active" data-cat="all">全部</button>
+    <button class="ffilter" data-cat="main">主食</button>
+    <button class="ffilter" data-cat="sweet">甜品</button>
+    <button class="ffilter" data-cat="snack">小食</button>
+    <button class="ffilter" data-cat="bread">麵包</button>
+  </div>
+  <div class="food-grid" id="food-grid">
+    <article class="food-card" data-cat="main">
+      <div class="food-top main"><span class="food-cat-badge">主食</span><div class="food-name">前田屋 博多店</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D1 · 17:00 已鎖定</div>
+        <div class="food-area">福岡 · 博多</div>
+        <div class="food-note">博多拉麵名店。抵達日晚餐定番，三人準時 17:00。</div>
+        <a class="food-link" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x354191b8cf465de3:0xba51a47ac9a69d30" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="main">
+      <div class="food-top main"><span class="food-cat-badge">主食</span><div class="food-name">焼肉の牛太 本陣</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D2 晚 · 訂位候選</div>
+        <div class="food-area">福岡 · 博多</div>
+        <div class="food-note">燒肉候補之一。建議訂 19:30 後三人位。</div>
+        <a class="food-link" href="https://g.page/honjin_yd?share" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="main">
+      <div class="food-top main"><span class="food-cat-badge">主食</span><div class="food-name">焼肉チャンピオン</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D2 晚 · 訂位候選</div>
+        <div class="food-area">JR博多シティ</div>
+        <div class="food-note">車站直達便利，適合一日團歸來的疲累夜晚。</div>
+        <a class="food-link" href="https://www.google.com/maps/place/?q=place_id:ChIJBVmI6seRQTURT3Xk9Lpj52M" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="main">
+      <div class="food-top main"><span class="food-cat-badge">主食</span><div class="food-name">由布まぶし 心 金鱗湖本店</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D3 由布院</div>
+        <div class="food-area">由布院 · 金鱗湖</div>
+        <div class="food-note">由布院名物鰻魚まぶし。本店景致佳，可能需候位。</div>
+        <a class="food-link" href="https://goo.gl/maps/tNEwrnwCQ9ZqM2ES7" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="main">
+      <div class="food-top main"><span class="food-cat-badge">主食</span><div class="food-name">由布まぶし 心 駅前支店</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D3 由布院</div>
+        <div class="food-area">由布院駅前</div>
+        <div class="food-note">駅前較方便趕車；與本店同品牌備選。</div>
+        <a class="food-link" href="https://goo.gl/maps/7rYMYWHNJtYQ1uAn6" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="main">
+      <div class="food-top main"><span class="food-cat-badge">主食</span><div class="food-name">だるま堂</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D4 小倉</div>
+        <div class="food-area">北九州 · 小倉</div>
+        <div class="food-note">小倉燒咖哩代表。午前巡禮首選。</div>
+        <a class="food-link" href="https://www.google.com/maps/place/%E3%81%A0%E3%82%8B%E3%81%BE%E5%A0%82/@33.884556,130.880671,17z" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="main">
+      <div class="food-top main"><span class="food-cat-badge">主食</span><div class="food-name">あぢもり</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D4 小倉</div>
+        <div class="food-area">北九州 · 小倉</div>
+        <div class="food-note">海鮮／鄉土料理名店。</div>
+        <a class="food-link" href="https://goo.gl/maps/8wjKNpbrreQ2" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="main">
+      <div class="food-top main"><span class="food-cat-badge">主食</span><div class="food-name">熊襲亭</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D5 鹿兒島 · 黑豬候選</div>
+        <div class="food-area">鹿兒島</div>
+        <div class="food-note">黑豬料理。訂位尚未確認，請盡早處理。</div>
+        <a class="food-link" href="https://goo.gl/maps/VAtS7twtCJ1coVFi8" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="main">
+      <div class="food-top main"><span class="food-cat-badge">主食</span><div class="food-name">楽天地</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D4／D6 備選</div>
+        <div class="food-area">福岡</div>
+        <div class="food-note">在地食堂風格，休息日或天神午後輕鬆用餐。</div>
+        <a class="food-link" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x0:0x5d50dc331a824a89" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="main">
+      <div class="food-top main"><span class="food-cat-badge">主食</span><div class="food-name">ShinShin</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">博多備選拉麵</div>
+        <div class="food-area">福岡 · 天神／博多</div>
+        <div class="food-note">人氣豚骨拉麵。可作前田屋之外的彈性選項。</div>
+        <a class="food-link" href="https://www.google.com/maps/place/?q=place_id:ChIJaVDnv46RQTURWuJE01tjUGk" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="main">
+      <div class="food-top main"><span class="food-cat-badge">主食</span><div class="food-name">節ちゃん</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">博多備選</div>
+        <div class="food-area">福岡</div>
+        <div class="food-note">在地風味食堂，適合不想排隊時轉進。</div>
+        <a class="food-link" href="https://www.google.com/maps/place/?q=place_id:ChIJLfIi_IWRQTURK0Gp6iTVrss" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="main">
+      <div class="food-top main"><span class="food-cat-badge">主食</span><div class="food-name">銀橋</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D2 高千穗</div>
+        <div class="food-area">高千穗</div>
+        <div class="food-note">蕎麥處。視一日團午餐安排能否自行前往。</div>
+        <a class="food-link" href="https://www.google.com/maps/search/?api=1&query=%E3%81%9D%E3%81%B0%E5%87%A6%E9%8A%80%E6%A9%8B%20%E5%AE%AE%E5%B4%8E%E7%9C%8C%E8%A5%BF%E8%87%BC%E6%9D%B5%E9%83%A1%E9%AB%98%E5%8D%83%E7%A9%82%E7%94%BA%E6%8A%BC%E6%96%B91248-2" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="main">
+      <div class="food-top main"><span class="food-cat-badge">主食</span><div class="food-name">おたに家</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">福岡備選</div>
+        <div class="food-area">福岡</div>
+        <div class="food-note">休息日或天神午後的彈性選項。</div>
+        <a class="food-link" href="https://goo.gl/maps/YJxucwxAQ23AiTC77" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="sweet">
+      <div class="food-top sweet"><span class="food-cat-badge">甜品</span><div class="food-name">Milch</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D3 由布院</div>
+        <div class="food-area">由布院</div>
+        <div class="food-note">乳製品／布丁系人氣店，午後甜點首選之一。</div>
+        <a class="food-link" href="https://www.google.com/maps?cid=9729263317818336382" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="sweet">
+      <div class="food-top sweet"><span class="food-cat-badge">甜品</span><div class="food-name">B-speak</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D3 由布院</div>
+        <div class="food-area">由布院</div>
+        <div class="food-note">巨無霸鬆餅名物，三人可分享。</div>
+        <a class="food-link" href="https://maps.app.goo.gl/6T2J6dxQcfNGhMkv7" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="sweet">
+      <div class="food-top sweet"><span class="food-cat-badge">甜品</span><div class="food-name">花麹菊家</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D3 由布院</div>
+        <div class="food-area">由布院</div>
+        <div class="food-note">伴手禮與堂食皆宜的和洋菓子。</div>
+        <a class="food-link" href="https://www.google.com/maps/place/?q=place_id:ChIJkaCZUH6uRjURl9_jBMx6fbk" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="sweet">
+      <div class="food-top sweet"><span class="food-cat-badge">甜品</span><div class="food-name">cucuchi</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D3 由布院</div>
+        <div class="food-area">由布院</div>
+        <div class="food-note">精品甜點小店，適合不想排長龍時。</div>
+        <a class="food-link" href="https://www.google.com/maps/place/?q=place_id:ChIJVVURT3-uRjURVlD_GBgzvTo" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="sweet">
+      <div class="food-top sweet"><span class="food-cat-badge">甜品</span><div class="food-name">むじゃき</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D5 鹿兒島</div>
+        <div class="food-area">鹿兒島 · 天文館</div>
+        <div class="food-note">白熊冰創始名店。天氣涼可三人分食。</div>
+        <a class="food-link" href="https://www.google.com/maps?cid=16284883595691039858" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="snack">
+      <div class="food-top snack"><span class="food-cat-badge">小食</span><div class="food-name">金賞コロッケ 2号店</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D3 由布院</div>
+        <div class="food-area">由布院</div>
+        <div class="food-note">金獎可樂餅，邊走邊吃的街道小食。</div>
+        <a class="food-link" href="https://www.google.com/maps/place/?q=place_id:ChIJLWUDP3-uRjURqOjtY4mdTTo" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="snack">
+      <div class="food-top snack"><span class="food-cat-badge">小食</span><div class="food-name">吉吾 湯布院</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D3 由布院</div>
+        <div class="food-area">由布院</div>
+        <div class="food-note">串燒／小食風格，補充下午熱量。</div>
+        <a class="food-link" href="https://goo.gl/maps/336sNwWDttvgohBu5" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="snack">
+      <div class="food-top snack"><span class="food-cat-badge">小食</span><div class="food-name">小倉かまぼこ</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D4 小倉</div>
+        <div class="food-area">小倉</div>
+        <div class="food-note">魚板名物，可作伴手禮或當場吃。</div>
+        <a class="food-link" href="https://maps.app.goo.gl/W6A1V7pDbmsA15cs8" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="snack">
+      <div class="food-top snack"><span class="food-cat-badge">小食</span><div class="food-name">揚立屋</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D5 鹿兒島</div>
+        <div class="food-area">鹿兒島</div>
+        <div class="food-note">炸甜薯／炸物點心，散步時手攜。</div>
+        <a class="food-link" href="https://goo.gl/maps/g1H1atPz9TQS9btb9" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="snack">
+      <div class="food-top snack"><span class="food-cat-badge">小食</span><div class="food-name">醤油屋本店</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D3 由布院</div>
+        <div class="food-area">湯布院</div>
+        <div class="food-note">醬油布丁等名物，街道必訪小店。</div>
+        <a class="food-link" href="https://www.google.com/maps/search/?api=1&query=%E6%B9%AF%E5%B8%83%E9%99%A2%E9%86%A4%E6%B2%B9%E5%B1%8B%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="bread">
+      <div class="food-top bread"><span class="food-cat-badge">麵包</span><div class="food-name">THE FULL FULL HAKATA</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D1／D6 博多</div>
+        <div class="food-area">博多</div>
+        <div class="food-note">抵達日或休息日的优质麵包補給。</div>
+        <a class="food-link" href="https://goo.gl/maps/wCKzumNJexkvdWNa9" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="bread">
+      <div class="food-top bread"><span class="food-cat-badge">麵包</span><div class="food-name">DACOMECCA</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D1／D6 博多</div>
+        <div class="food-area">博多</div>
+        <div class="food-note">人氣烘焙，可作早餐或火車便當搭檔。</div>
+        <a class="food-link" href="https://maps.app.goo.gl/Zt5GjN1iD13VMuY88" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="bread">
+      <div class="food-top bread"><span class="food-cat-badge">麵包</span><div class="food-name">みっふぃー湯布院</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D3 由布院</div>
+        <div class="food-area">由布院</div>
+        <div class="food-note">米飛主題烘焙，適合拍照與伴手。</div>
+        <a class="food-link" href="https://maps.app.goo.gl/CkppPSfkehSESQe59" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="bread">
+      <div class="food-top bread"><span class="food-cat-badge">麵包</span><div class="food-name">こちょぱん</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D3 由布院</div>
+        <div class="food-area">由布院</div>
+        <div class="food-note">街道小型麵包店，邊走邊咬剛剛好。</div>
+        <a class="food-link" href="https://goo.gl/maps/kU54Av33Dy85oyqH6" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+    <article class="food-card" data-cat="bread">
+      <div class="food-top bread"><span class="food-cat-badge">麵包</span><div class="food-name">CAFE LA RUCHE</div></div>
+      <div class="food-body">
+        <div class="food-day-tag">D3 由布院</div>
+        <div class="food-area">由布院</div>
+        <div class="food-note">咖啡＋烘焙歇腳點，趕 15:56 前可坐一下。</div>
+        <a class="food-link" href="https://www.google.com/maps/place/?q=place_id:ChIJ8RYhfIeuRjURGstyZ9HLzzc" target="_blank" rel="noopener">📍 開啟 Maps</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="panel-notes" class="panel">
+  <div class="sec-head"><h2>注意事項與清單 <span class="jp">慎</span></h2><span class="tag">風險 · 待辦 · 攜行</span></div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="ico">⚠</span> 通行與訂位風險</div>
+      <div class="warn-box" style="margin-top:0"><strong>山陽新幹線陷阱（D4）</strong><br>All-Kyushu Pass <em>不含</em> Sanyo Shinkansen。小倉務必只搭 <strong>Sonic／Kirameki</strong>。若閘機或月台指標寫「新幹線」，停步確認車種。</div>
+      <div class="warn-box"><strong>高負荷日連撞</strong><br>D2 高千穗與 D5 鹿兒島皆為早出長途。中間夾 D3、D4，D6 必須保留為真正休息日。</div>
+      <div class="open-box" style="margin-top:1rem"><strong>開放項目（未完成即有風險）</strong>
+        <ul style="margin-top:.5rem;padding-left:1.1rem;font-size:.85rem;line-height:1.75">
+          <li>D2 燒肉 19:30 後訂位（牛太本陣／チャンピオン）</li>
+          <li>D5 黑豬餐廳訂位</li>
+          <li>酒店名稱／地址確認</li>
+          <li>高千穗一日團集合地點</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="ico">✓</span> 行前／行中清單</div>
+      <ul class="check-list" id="master-check">
+        <li><div class="check-box done" onclick="toggleCheck(this)">✓</div><span>All-Kyushu JR Pass 已購</span><span class="check-status done-s">完成</span></li>
+        <li><div class="check-box done" onclick="toggleCheck(this)">✓</div><span>HX638 / HX641 航班確認（非 UO）</span><span class="check-status done-s">完成</span></li>
+        <li><div class="check-box done" onclick="toggleCheck(this)">✓</div><span>前田屋 D1 17:00</span><span class="check-status lock-s">鎖定</span></li>
+        <li><div class="check-box done" onclick="toggleCheck(this)">✓</div><span>高千穗團 D2 08:00</span><span class="check-status lock-s">鎖定</span></li>
+        <li><div class="check-box done" onclick="toggleCheck(this)">✓</div><span>由布院 09:17 / 15:56</span><span class="check-status lock-s">鎖定</span></li>
+        <li><div class="check-box" onclick="toggleCheck(this)"></div><span>D2 燒肉訂位（19:30+）</span><span class="check-status open-s">待辦</span></li>
+        <li><div class="check-box" onclick="toggleCheck(this)"></div><span>D5 黑豬訂位</span><span class="check-status open-s">待辦</span></li>
+        <li><div class="check-box" onclick="toggleCheck(this)"></div><span>酒店名稱確認</span><span class="check-status open-s">待辦</span></li>
+        <li><div class="check-box" onclick="toggleCheck(this)"></div><span>高千穗集合點確認</span><span class="check-status open-s">待辦</span></li>
+        <li><div class="check-box" onclick="toggleCheck(this)"></div><span>保險／漫遊／現金日元</span><span class="check-status open-s">待辦</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sec-head"><h2>攜行與禮儀提醒</h2></div>
+  <div class="grid-3">
+    <div class="card"><div class="card-title">證件交通</div><p style="font-size:.85rem;color:var(--ink-muted);line-height:1.75">護照、JR Pass 實體或兌換憑證、機票 QR、酒店確認信（待名稱確定後下載）。三人分持備份照片。</p></div>
+    <div class="card"><div class="card-title">長輩友善</div><p style="font-size:.85rem;color:var(--ink-muted);line-height:1.75">預留坐下休息點；高千穗／鹿兒島減少臨時加點；燒肉選座位寬敞的店。D6 完全不安排強制行程。</p></div>
+    <div class="card"><div class="card-title">天氣與衣著</div><p style="font-size:.85rem;color:var(--ink-muted);line-height:1.75">11 月末九州偏涼，日夜溫差大。薄羽絨＋圍巾；由布院山區可能更低溫。舒適步行鞋必備。</p></div>
+  </div>
+  <div class="card" style="margin-top:1.5rem">
+    <div class="card-title"><span class="ico">◎</span> 行程結構比例（示意）</div>
+    <div class="donut-wrap">
+      <svg width="160" height="160" viewBox="0 0 42 42">
+        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#E5DDD0" stroke-width="5"/>
+        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#C45C4A" stroke-width="5" stroke-dasharray="28.5 71.5" stroke-dashoffset="25" stroke-linecap="round"/>
+        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#D4A574" stroke-width="5" stroke-dasharray="28.5 71.5" stroke-dashoffset="96.5" stroke-linecap="round"/>
+        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#8B7BA8" stroke-width="5" stroke-dasharray="28.5 71.5" stroke-dashoffset="68" stroke-linecap="round"/>
+        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#5A6B4A" stroke-width="5" stroke-dasharray="14.5 85.5" stroke-dashoffset="39.5" stroke-linecap="round"/>
+        <text x="21" y="22.5" text-anchor="middle" fill="#1B2A4A" font-size="5" font-weight="700">7日</text>
+      </svg>
+      <div class="donut-legend">
+        <div><i style="background:#C45C4A"></i> 長途日（D2 高千穗 · D5 鹿兒島）</div>
+        <div><i style="background:#D4A574"></i> 溫泉觀光（D3 由布院）＋抵達</div>
+        <div><i style="background:#8B7BA8"></i> 城市日（D4 小倉天神 · D7 回程）</div>
+        <div><i style="background:#5A6B4A"></i> 完整休息（D6）</div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer class="footer">
+  <div class="seal">九</div>
+  <div>九州自由行儀表板 · LAWRENCE LAU 與父母 · 2026.11.24–30</div>
+  <div style="margin-top:.35rem">香港航空 HX638 / HX641 · All-Kyushu Pass · 和風自製單頁</div>
+</footer>
+
+<script>
+(function () {
+  const tabs = document.querySelectorAll('.nav-tab');
+  const panels = document.querySelectorAll('.panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+  const chips = document.querySelectorAll('.day-chip');
+  const dayPanels = document.querySelectorAll('.day-panel');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      dayPanels.forEach(p => p.classList.remove('active'));
+      chip.classList.add('active');
+      document.querySelector('[data-day-panel="' + chip.dataset.day + '"]').classList.add('active');
+    });
+  });
+  document.querySelectorAll('.cal-day.trip').forEach(day => {
+    day.addEventListener('click', () => {
+      document.querySelector('.nav-tab[data-panel="schedule"]').click();
+      const chip = document.querySelector('.day-chip[data-day="' + day.dataset.day + '"]');
+      if (chip) chip.click();
+    });
+  });
+  const filters = document.querySelectorAll('.ffilter');
+  const foods = document.querySelectorAll('.food-card');
+  filters.forEach(f => {
+    f.addEventListener('click', () => {
+      filters.forEach(x => x.classList.remove('active'));
+      f.classList.add('active');
+      const cat = f.dataset.cat;
+      foods.forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) card.classList.remove('hidden');
+        else card.classList.add('hidden');
+      });
+    });
+  });
+})();
+function toggleCheck(el) {
+  el.classList.toggle('done');
+  el.textContent = el.classList.contains('done') ? '✓' : '';
+}
+</script>
+</body>
+</html>
