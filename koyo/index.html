@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>九州紅葉情報 · 2026 年 11 月尾 | LAWRENCE LAU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --maple: #B8422E;
+  --maple-deep: #8B2E1F;
+  --maple-soft: #D4725A;
+  --gold: #C9A06A;
+  --gold-light: #E8D4B0;
+  --amber: #E09A3E;
+  --ink: #2A221C;
+  --ink-soft: #5C4F44;
+  --ink-faint: #8A7A6C;
+  --washi: #FBF6EF;
+  --washi-warm: #F3EADF;
+  --card: #FFFCFA;
+  --line: #E8DDD0;
+  --moss: #5E6B4A;
+  --indigo: #1F2A3D;
+  --shadow: 0 8px 40px rgba(42,34,28,0.10);
+  --shadow-lg: 0 20px 60px rgba(42,34,28,0.16);
+  --radius: 20px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans TC","PingFang TC","Hiragino Sans",sans-serif;
+  background:var(--washi);color:var(--ink);line-height:1.7;
+  background-image:
+    radial-gradient(ellipse at 0% 0%, rgba(184,66,46,0.07) 0%, transparent 45%),
+    radial-gradient(ellipse at 100% 10%, rgba(201,160,106,0.12) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, rgba(94,107,74,0.06) 0%, transparent 50%);
+  min-height:100vh;
+}
+h1,h2,h3{font-family:"Noto Serif JP",serif;font-weight:600;letter-spacing:.04em}
+
+/* NAV */
+.nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding:.9rem 1.5rem;
+  background:rgba(251,246,239,.88);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-brand{display:flex;align-items:center;gap:.7rem;color:var(--indigo);font-family:"Noto Serif JP",serif;font-size:1rem}
+.nav-brand .leaf{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(145deg,var(--maple),var(--amber));
+  display:grid;place-items:center;color:#fff;font-size:.95rem;
+  box-shadow:0 2px 10px rgba(184,66,46,.35);
+}
+.nav-links{display:flex;flex-wrap:wrap;gap:.35rem}
+.nav-links a{
+  font-size:.78rem;padding:.35rem .85rem;border-radius:999px;
+  color:var(--ink-soft);text-decoration:none;font-weight:500;
+  transition:.2s;
+}
+.nav-links a:hover{background:var(--washi-warm);color:var(--maple)}
+
+/* HERO */
+.hero{
+  position:relative;overflow:hidden;
+  min-height:52vh;display:grid;align-items:end;
+  color:#fff;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(31,42,61,.25) 0%, rgba(31,42,61,.55) 45%, rgba(31,42,61,.88) 100%),
+    url("img/takachiho-hero.jpg") center/cover no-repeat;
+  transform:scale(1.02);
+}
+.hero-inner{position:relative;z-index:1;padding:3.5rem 1.5rem 2.8rem;max-width:1100px;margin:0 auto;width:100%}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold-light);margin-bottom:1rem;font-weight:500;
+}
+.hero-kicker::before{content:"";width:28px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.25;margin-bottom:.8rem;color:#fff}
+.hero p{max-width:34rem;font-size:1.02rem;color:rgba(255,255,255,.82);font-weight:300}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem;
+}
+.chip{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+  backdrop-filter:blur(8px);padding:.4rem .9rem;border-radius:999px;
+  font-size:.8rem;color:#fff;
+}
+.chip strong{color:var(--gold-light);font-weight:600}
+
+/* LEGEND */
+.legend{
+  max-width:1100px;margin:-1.6rem auto 0;position:relative;z-index:2;
+  padding:0 1.5rem;
+}
+.legend-card{
+  background:var(--card);border-radius:var(--radius);
+  box-shadow:var(--shadow);border:1px solid var(--line);
+  padding:1.1rem 1.4rem;display:flex;flex-wrap:wrap;gap:1rem 1.8rem;align-items:center;
+}
+.legend-item{display:flex;align-items:center;gap:.5rem;font-size:.88rem;color:var(--ink-soft)}
+.badge{
+  display:inline-flex;align-items:center;gap:.25rem;
+  padding:.2rem .65rem;border-radius:999px;font-size:.75rem;font-weight:700;
+  letter-spacing:.04em;
+}
+.badge-peak{background:linear-gradient(135deg,#B8422E,#D4725A);color:#fff}
+.badge-good{background:linear-gradient(135deg,#C9A06A,#E09A3E);color:#fff}
+.badge-ok{background:linear-gradient(135deg,#5E6B4A,#7A8B6A);color:#fff}
+.badge-past{background:#E8DDD0;color:var(--ink-soft)}
+
+/* SECTIONS */
+.wrap{max-width:1100px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+.spot{
+  margin-bottom:2.8rem;
+  background:var(--card);border-radius:calc(var(--radius) + 4px);
+  border:1px solid var(--line);box-shadow:var(--shadow);
+  overflow:hidden;
+  transition:box-shadow .3s, transform .3s;
+}
+.spot:hover{box-shadow:var(--shadow-lg)}
+.spot-gallery{
+  display:grid;grid-template-columns:1.4fr 1fr;gap:4px;background:#1a1410;
+  min-height:280px;
+}
+.spot-gallery img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  min-height:280px;max-height:380px;
+  transition:transform .6s ease;
+}
+.spot:hover .spot-gallery img{transform:scale(1.03)}
+.spot-gallery .solo{grid-column:1 / -1}
+.spot-gallery.single{grid-template-columns:1fr}
+@media (max-width:720px){
+  .spot-gallery{grid-template-columns:1fr}
+  .spot-gallery img{min-height:220px;max-height:260px}
+}
+.spot-body{padding:1.5rem 1.6rem 1.7rem}
+.spot-head{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+.spot-title{display:flex;flex-direction:column;gap:.35rem}
+.spot-title h2{font-size:1.45rem;color:var(--indigo)}
+.spot-title .jp{font-size:.85rem;color:var(--ink-faint);font-weight:400;letter-spacing:.08em}
+.spot-desc{color:var(--ink-soft);font-size:.95rem;margin-bottom:1.1rem;max-width:48rem}
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.7rem;
+}
+.fact{
+  background:var(--washi);border:1px solid var(--line);border-radius:12px;
+  padding:.75rem 1rem;
+}
+.fact .label{font-size:.7rem;letter-spacing:.12em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:.2rem}
+.fact .value{font-size:.92rem;font-weight:500;color:var(--ink)}
+.tips{
+  margin-top:1.1rem;padding:1rem 1.1rem;border-radius:12px;
+  background:linear-gradient(135deg,rgba(184,66,46,.06),rgba(201,160,106,.08));
+  border-left:3px solid var(--maple);font-size:.9rem;color:var(--ink-soft);
+}
+.tips strong{color:var(--maple-deep)}
+
+/* SUMMARY TABLE */
+.table-wrap{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden;margin-bottom:2.5rem;
+}
+.table-wrap h2{padding:1.3rem 1.5rem .5rem;font-size:1.2rem}
+.table-wrap .sub{padding:0 1.5rem 1rem;color:var(--ink-faint);font-size:.88rem}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{padding:.85rem 1.2rem;text-align:left;border-top:1px solid var(--line)}
+th{background:var(--washi-warm);font-weight:600;color:var(--indigo);font-size:.78rem;letter-spacing:.06em}
+td.place{font-weight:600;color:var(--indigo)}
+@media (max-width:640px){
+  .hide-sm{display:none}
+  th,td{padding:.7rem .8rem}
+}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--line);padding:2rem 1.5rem 3rem;
+  max-width:1100px;margin:0 auto;color:var(--ink-faint);font-size:.78rem;
+}
+footer a{color:var(--maple)}
+.credits{margin-top:1rem;line-height:1.8}
+.credits strong{color:var(--ink-soft);font-weight:500}
+
+.section-label{
+  display:flex;align-items:center;gap:.8rem;margin:2rem 0 1.2rem;
+}
+.section-label h2{font-size:1.15rem;color:var(--indigo)}
+.section-label::after{content:"";flex:1;height:1px;background:var(--line)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand"><span class="leaf">楓</span>九州紅葉 · Nov 2026</div>
+  <div class="nav-links">
+    <a href="#kokura">小倉</a>
+    <a href="#takachiho">高千穗</a>
+    <a href="#fukuoka">福岡</a>
+    <a href="#kagoshima">鹿兒島</a>
+    <a href="#kirishima">霧島神宮</a>
+    <a href="#yufuin">由布院</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker">Kyushu Koyo Guide</div>
+    <h1>九州紅葉情報<br>2026 年 11 月 24–30</h1>
+    <p>對照你嘅行程窗口，整理小倉、高千穗、福岡、鹿兒島／霧島神宮、由布院嘅見頃判斷，配上授權風景圖。</p>
+    <div class="hero-meta">
+      <span class="chip"><strong>正峰</strong> 小倉 · 高千穗</span>
+      <span class="chip"><strong>好睇</strong> 福岡 · 鹿兒島</span>
+      <span class="chip"><strong>多數過峰</strong> 由布院</span>
+    </div>
+  </div>
+</header>
+
+<div class="legend">
+  <div class="legend-card">
+    <div class="legend-item"><span class="badge badge-peak">★★ 正峰</span> 見頃／接近最佳</div>
+    <div class="legend-item"><span class="badge badge-good">★ 好睇</span> 仲有色、值得去</div>
+    <div class="legend-item"><span class="badge badge-ok">★ 可用</span> 市區／神宮仍可</div>
+    <div class="legend-item"><span class="badge badge-past">△ 過峰</span> 唔好當主紅葉目的</div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="section-label"><h2>一覽表</h2></div>
+  <div class="table-wrap">
+    <h2>見頃判定（11 月尾）</h2>
+    <p class="sub">依例年季節＋公開紅葉情報推估，實際以色況為準。</p>
+    <table>
+      <thead>
+        <tr><th>地方</th><th>判定</th><th class="hide-sm">說明</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="place">小倉／北九州</td>
+          <td><span class="badge badge-peak">★★ 正峰</span></td>
+          <td class="hide-sm">勝山公園見頃約 11/28 起；河內藤園秋開園 11/21–29</td>
+        </tr>
+        <tr>
+          <td class="place">高千穗</td>
+          <td><span class="badge badge-peak">★★ 正峰</span></td>
+          <td class="hide-sm">見頃約 11/22 起、落葉約 12/4；峽谷＋夜燈好睇</td>
+        </tr>
+        <tr>
+          <td class="place">福岡</td>
+          <td><span class="badge badge-good">★ 好睇</span></td>
+          <td class="hide-sm">銀杏約 11/30；楓樹見頃偏 12 初｜大濠／西公園／紅葉八幡宮</td>
+        </tr>
+        <tr>
+          <td class="place">鹿兒島市＋神宮</td>
+          <td><span class="badge badge-ok">★ 可用</span></td>
+          <td class="hide-sm">市區／仙巖園約 11/28–12 中；霧島神宮周邊仍可能見頃｜大浪池／高原偏過</td>
+        </tr>
+        <tr>
+          <td class="place">由布院</td>
+          <td><span class="badge badge-past">△ 多數過峰</span></td>
+          <td class="hide-sm">例年 11 上–中旬完；唔好當主紅葉目的｜順路金鱗湖或有剩色</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-label"><h2>景點相集</h2></div>
+
+  <!-- KOKURA -->
+  <article class="spot" id="kokura">
+    <div class="spot-gallery">
+      <img src="img/kokura-hero.jpg" alt="小倉城秋色" loading="lazy">
+      <img src="img/kokura-2.jpg" alt="小倉城另一角度" loading="lazy">
+    </div>
+    <div class="spot-body">
+      <div class="spot-head">
+        <div class="spot-title">
+          <h2>小倉／北九州</h2>
+          <span class="jp">小倉城 · 勝山公園 · 河內藤園</span>
+        </div>
+        <span class="badge badge-peak">★★ 正峰</span>
+      </div>
+      <p class="spot-desc">小倉城＋勝山公園係北九州最易去嘅紅葉點；城池同紅葉一齊入鏡好有氣勢。河內藤園秋開園窗口短，適合專程一日。</p>
+      <div class="facts">
+        <div class="fact"><div class="label">見頃</div><div class="value">約 11/28 起</div></div>
+        <div class="fact"><div class="label">河內藤園</div><div class="value">秋開園 11/21–29</div></div>
+        <div class="fact"><div class="label">交通</div><div class="value">博多新幹線約 15–20 分</div></div>
+      </div>
+      <div class="tips"><strong>行程提示：</strong> 11/24–30 窗口正正撞正峰，優先度高。藤園要查當日開園／預約。</div>
+    </div>
+  </article>
+
+  <!-- TAKACHIHO -->
+  <article class="spot" id="takachiho">
+    <div class="spot-gallery">
+      <img src="img/takachiho-hero.jpg" alt="高千穗峽秋色" loading="lazy">
+      <img src="img/takachiho-2.jpg" alt="高千穗峽" loading="lazy">
+    </div>
+    <div class="spot-body">
+      <div class="spot-head">
+        <div class="spot-title">
+          <h2>高千穗</h2>
+          <span class="jp">高千穂峡 · 夜燈</span>
+        </div>
+        <span class="badge badge-peak">★★ 正峰</span>
+      </div>
+      <p class="spot-desc">峽谷水面映紅葉係九州招牌畫面；划船位要早訂。夜燈期間更加夢幻，適合過夜或者晚返。</p>
+      <div class="facts">
+        <div class="fact"><div class="label">見頃</div><div class="value">約 11/22 起</div></div>
+        <div class="fact"><div class="label">落葉</div><div class="value">約 12/4 前後</div></div>
+        <div class="fact"><div class="label">亮點</div><div class="value">峽谷＋夜燈</div></div>
+      </div>
+      <div class="tips"><strong>行程提示：</strong> 你嘅日期幾乎全程見頃。租船／夜燈名額有限，建議提前網上預約。</div>
+    </div>
+  </article>
+
+  <!-- FUKUOKA -->
+  <article class="spot" id="fukuoka">
+    <div class="spot-gallery">
+      <img src="img/fukuoka-hero.jpg" alt="福岡紅葉八幡宮" loading="lazy">
+      <img src="img/fukuoka-2.jpg" alt="紅葉八幡宮鳥居" loading="lazy">
+    </div>
+    <div class="spot-body">
+      <div class="spot-head">
+        <div class="spot-title">
+          <h2>福岡</h2>
+          <span class="jp">大濠公園 · 西公園 · 紅葉八幡宮</span>
+        </div>
+        <span class="badge badge-good">★ 好睇</span>
+      </div>
+      <p class="spot-desc">銀杏會喺月底前後轉黃；楓樹見頃偏 12 月初。紅葉八幡宮顧名思義，市區方便打卡；大濠／西公園適合散步。</p>
+      <div class="facts">
+        <div class="fact"><div class="label">銀杏</div><div class="value">約 11/30</div></div>
+        <div class="fact"><div class="label">楓樹</div><div class="value">見頃偏 12 初</div></div>
+        <div class="fact"><div class="label">基地</div><div class="value">博多／天神出發最易</div></div>
+      </div>
+      <div class="tips"><strong>行程提示：</strong> 適合放喺出發／回程日順路睇，唔使專程長途。十一月尾銀杏會開始靚。</div>
+    </div>
+  </article>
+
+  <!-- KAGOSHIMA -->
+  <article class="spot" id="kagoshima">
+    <div class="spot-gallery">
+      <img src="img/kagoshima-hero.jpg" alt="仙巖園庭園" loading="lazy">
+      <img src="img/kagoshima-2.jpg" alt="仙巖園散步道" loading="lazy">
+    </div>
+    <div class="spot-body">
+      <div class="spot-head">
+        <div class="spot-title">
+          <h2>鹿兒島市 · 仙巖園</h2>
+          <span class="jp">仙巌園 · 市區</span>
+        </div>
+        <span class="badge badge-ok">★ 可用</span>
+      </div>
+      <p class="spot-desc">仙巖園庭園同櫻島景觀一流；市區紅葉約 11/28 至 12 月中。大浪池／高原一帶多數已過，唔好專程為紅葉上高原。</p>
+      <div class="facts">
+        <div class="fact"><div class="label">市區／仙巖園</div><div class="value">約 11/28–12 中</div></div>
+        <div class="fact"><div class="label">高原</div><div class="value">大浪池等偏過</div></div>
+        <div class="fact"><div class="label">配合</div><div class="value">D5 霧島神宮行程</div></div>
+      </div>
+      <div class="tips"><strong>行程提示：</strong> 同霧島神宮同一日出發最順。紅葉當加分，唔使為色況硬加高原。</div>
+    </div>
+  </article>
+
+  <!-- KIRISHIMA -->
+  <article class="spot" id="kirishima">
+    <div class="spot-gallery">
+      <img src="img/kirishima-hero.jpg" alt="霧島神宮參道" loading="lazy">
+      <img src="img/kirishima-2.jpg" alt="霧島神宮神橋" loading="lazy">
+    </div>
+    <div class="spot-body">
+      <div class="spot-head">
+        <div class="spot-title">
+          <h2>霧島神宮</h2>
+          <span class="jp">霧島神宮 · 神橋 · 參道</span>
+        </div>
+        <span class="badge badge-ok">★ 可用</span>
+      </div>
+      <p class="spot-desc">朱色社殿同參道樹木係經典畫面；神宮周邊 11 月尾仍可能見頃。重點係文化體驗同建築，紅葉係錦上添花。</p>
+      <div class="facts">
+        <div class="fact"><div class="label">色況</div><div class="value">周邊仍可能見頃</div></div>
+        <div class="fact"><div class="label">交通</div><div class="value">特急きりしま＋的士</div></div>
+        <div class="fact"><div class="label">建議停留</div><div class="value">約 1 小時行神宮</div></div>
+      </div>
+      <div class="tips"><strong>行程提示：</strong> 已有 D5 詳細表。神宮行完返鹿兒島中央食 lunch 最穩陣。</div>
+    </div>
+  </article>
+
+  <!-- YUFUIN -->
+  <article class="spot" id="yufuin">
+    <div class="spot-gallery">
+      <img src="img/yufuin-hero.jpg" alt="金鱗湖" loading="lazy">
+      <img src="img/yufuin-2.jpg" alt="金鱗湖秋景" loading="lazy">
+    </div>
+    <div class="spot-body">
+      <div class="spot-head">
+        <div class="spot-title">
+          <h2>由布院</h2>
+          <span class="jp">金鱗湖 · 湯之坪街道</span>
+        </div>
+        <span class="badge badge-past">△ 多數過峰</span>
+      </div>
+      <p class="spot-desc">例年紅葉喺 11 上–中旬完結。你嘅日期多數已過峰——適合溫泉、散步、食，唔好當主紅葉目的。金鱗湖或有少量剩色。</p>
+      <div class="facts">
+        <div class="fact"><div class="label">例年完結</div><div class="value">11 上–中旬</div></div>
+        <div class="fact"><div class="label">11 月尾</div><div class="value">多數過峰</div></div>
+        <div class="fact"><div class="label">替代賣點</div><div class="value">溫泉 · 散步 · 甜品</div></div>
+      </div>
+      <div class="tips"><strong>行程提示：</strong> 想睇紅葉就優先小倉／高千穗。由布院當休閒日就好。</div>
+    </div>
+  </article>
+
+</main>
+
+<footer>
+  <p>九州自由行 · 紅葉參考頁 · 行程窗口 2026-11-24～30 · 博多基地</p>
+  <div class="credits">
+    <strong>相片來源（Wikimedia Commons／授權標明）：</strong><br>
+    小倉城 — wongwt（CC BY-SA 2.0）·
+    高千穗峽 — Hiroaki Kaneko / junichiro kawakami（CC BY-SA 3.0）·
+    紅葉八幡宮 — Commons 上傳者（CC BY-SA 4.0）·
+    仙巖園／霧島神宮 — Hyppolyte de Saint-Rambert（CC BY 4.0）·
+    金鱗湖 — STA3816（CC BY-SA 3.0）
+  </div>
+  <p style="margin-top:1.2rem">色況屬季節推估，出發前建議再查當地最新紅葉情報。</p>
+</footer>
+
+</body>
+</html>
