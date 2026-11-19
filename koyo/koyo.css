@@ -248,3 +248,56 @@ a.day-btn {
 }
 a.day-btn:hover { color: inherit; }
 a.day-btn[aria-selected="true"] { color: inherit; }
+
+/* 景點參考相：和紙卡片內的圓角實景圖，不是畫冊風格 */
+.koyo-photo {
+  margin: 0 0 .95rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--washi-warm);
+}
+.koyo-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center 45%;
+  background: var(--washi);
+}
+.koyo-photo.pos-center img { object-position: center center; }
+.koyo-photo.pos-upper img { object-position: center 30%; }
+.koyo-photo.pos-lower img { object-position: center 62%; }
+.koyo-photo figcaption {
+  font-size: .72rem;
+  color: var(--ink-faint);
+  line-height: 1.65;
+  padding: .5rem .8rem .7rem;
+  background: var(--washi);
+}
+.koyo-photo-label {
+  display: block;
+  font-family: "Noto Serif JP", serif;
+  color: var(--indigo);
+  font-size: .8rem;
+  font-weight: 600;
+  margin-bottom: .12rem;
+}
+.koyo-photo.is-lookout figcaption .koyo-photo-label {
+  color: var(--indigo-soft);
+}
+.koyo-nophoto {
+  font-size: .85rem !important;
+  color: var(--ink-muted);
+  background: var(--washi);
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  padding: .65rem .85rem;
+  margin: 0 0 .85rem !important;
+}
+
+.koyo-credits {
+  margin-top: 1rem;
+}
+.koyo-credits li { word-break: break-word; }
