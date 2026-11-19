@@ -1,0 +1,250 @@
+/* 紅葉頁專用樣式：沿用主站和風儀表板變數與元件，不另開畫冊風格 */
+
+.koyo-asof {
+  margin: -2.5rem auto 1.5rem;
+  max-width: 1200px;
+  position: relative;
+  z-index: 2;
+  padding: 0 1.5rem;
+}
+.koyo-asof .card {
+  border-left: 4px solid var(--gold);
+}
+.koyo-asof p {
+  font-size: .9rem;
+  color: var(--ink-muted);
+  margin: 0 0 .55rem;
+}
+.koyo-asof p:last-child { margin-bottom: 0; }
+.koyo-asof strong { color: var(--indigo); }
+
+.koyo-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem .75rem;
+  margin: 0 0 1.25rem;
+  font-size: .8rem;
+  color: var(--ink-muted);
+}
+.koyo-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.koyo-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: .15rem .65rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.koyo-badge.peak {
+  background: rgba(196, 92, 74, .12);
+  color: var(--vermillion);
+  border-color: rgba(196, 92, 74, .28);
+}
+.koyo-badge.coloring {
+  background: rgba(212, 165, 116, .22);
+  color: #9A6B3A;
+  border-color: rgba(212, 165, 116, .45);
+}
+.koyo-badge.fade {
+  background: rgba(90, 107, 74, .12);
+  color: var(--moss);
+  border-color: rgba(90, 107, 74, .28);
+}
+.koyo-badge.unknown {
+  background: rgba(27, 42, 74, .06);
+  color: var(--indigo-soft);
+  border-color: rgba(27, 42, 74, .16);
+}
+.koyo-badge.split {
+  background: rgba(139, 123, 168, .14);
+  color: #5A4E78;
+  border-color: rgba(139, 123, 168, .3);
+}
+
+.koyo-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 1.75rem;
+}
+.koyo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+  background: var(--washi-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.koyo-table th,
+.koyo-table td {
+  text-align: left;
+  padding: .7rem .85rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.koyo-table th {
+  font-size: .72rem;
+  letter-spacing: .06em;
+  color: var(--ink-faint);
+  font-weight: 600;
+  background: var(--washi-warm);
+}
+.koyo-table tr:last-child td { border-bottom: none; }
+.koyo-table .place {
+  font-family: "Noto Serif JP", serif;
+  color: var(--indigo);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.koyo-table a { font-weight: 600; }
+
+.koyo-day {
+  margin-bottom: 2.25rem;
+  scroll-margin-top: calc(var(--nav-h) + 16px);
+}
+.koyo-day-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .5rem 1rem;
+  margin-bottom: .45rem;
+}
+.koyo-day-head h2 { margin: 0; font-size: 1.35rem; }
+.koyo-day-meta { font-size: .85rem; color: var(--ink-muted); }
+.koyo-day-lead {
+  color: var(--ink-muted);
+  font-size: .95rem;
+  margin-bottom: 1rem;
+  max-width: 52rem;
+}
+
+.koyo-spots {
+  display: grid;
+  gap: 1rem;
+}
+.koyo-spot {
+  background: var(--washi-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.2rem 1.2rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+.koyo-spot::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent, var(--gold));
+  border-radius: 4px 0 0 4px;
+}
+.koyo-spot.is-peak { --accent: var(--vermillion); }
+.koyo-spot.is-coloring { --accent: var(--gold); }
+.koyo-spot.is-fade { --accent: var(--moss); }
+.koyo-spot.is-unknown { --accent: var(--indigo-soft); }
+.koyo-spot.is-split { --accent: var(--wisteria); }
+.koyo-spot.is-option { --accent: var(--moss-light); }
+
+.koyo-spot-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .45rem .6rem;
+  margin-bottom: .55rem;
+}
+.koyo-spot h3 {
+  font-size: 1.12rem;
+  margin: 0;
+  margin-right: auto;
+}
+.koyo-jp {
+  display: block;
+  font-size: .78rem;
+  color: var(--ink-faint);
+  font-weight: 400;
+  margin-top: .15rem;
+  font-family: "Noto Sans JP", sans-serif;
+}
+.koyo-spot p { font-size: .92rem; color: var(--ink); margin: 0 0 .75rem; }
+.koyo-spot p:last-child { margin-bottom: 0; }
+
+.koyo-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: .55rem;
+  margin: .15rem 0 .85rem;
+}
+.koyo-facts .fact {
+  margin: 0;
+  padding: .55rem .7rem;
+}
+.koyo-facts .label {
+  font-size: .68rem;
+  color: var(--ink-faint);
+  letter-spacing: .04em;
+  margin-bottom: .2rem;
+}
+.koyo-facts .value {
+  font-size: .88rem;
+  color: var(--indigo);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.koyo-note {
+  font-size: .88rem;
+  color: var(--ink-muted);
+  background: var(--washi);
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  padding: .7rem .85rem;
+  margin: 0 0 .75rem;
+}
+.koyo-note strong { color: var(--indigo); }
+
+.koyo-src {
+  font-size: .75rem;
+  color: var(--ink-faint);
+  line-height: 1.6;
+  margin: 0;
+}
+.koyo-src a { font-weight: 500; }
+
+.koyo-sources {
+  font-size: .82rem;
+  color: var(--ink-muted);
+}
+.koyo-sources ul {
+  list-style: none;
+  display: grid;
+  gap: .45rem;
+  margin-top: .6rem;
+}
+.koyo-sources li { line-height: 1.55; }
+
+@media (max-width: 800px) {
+  .koyo-asof { margin-top: -1.5rem; padding: 0 1.05rem; }
+  .koyo-table .hide-sm { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .koyo-spot { transition: none; }
+}
+
+a.day-btn {
+  color: inherit;
+  text-decoration: none;
+}
+a.day-btn:hover { color: inherit; }
+a.day-btn[aria-selected="true"] { color: inherit; }
