@@ -52,6 +52,71 @@
     return "天氣狀況不明";
   }
 
+  function weatherKind(code) {
+    const n = Number(code);
+    if (n === 0) return "sun";
+    if (n === 1) return "mainly-sun";
+    if (n === 2) return "partly-cloud";
+    if (n === 3) return "cloud";
+    if (n === 45 || n === 48) return "fog";
+    if (n === 51 || n === 53 || n === 55 || n === 56 || n === 57) return "drizzle";
+    if (n === 65 || n === 82) return "heavy-rain";
+    if (n === 61 || n === 63 || n === 66 || n === 67 || n === 80 || n === 81) return "rain";
+    if (n === 75 || n === 86) return "heavy-snow";
+    if (n === 71 || n === 73 || n === 77 || n === 85) return "snow";
+    if (n === 95) return "thunder";
+    if (n === 96 || n === 99) return "thunder-hail";
+    return "unknown";
+  }
+
+  function weatherIcon(code) {
+    const kind = weatherKind(code);
+    const icons = {
+      sun:
+        '<circle cx="32" cy="32" r="11" fill="#E8C9A0"/><g stroke="#D4A574" stroke-width="3" stroke-linecap="round" fill="none"><path d="M32 8v6M32 50v6M8 32h6M50 32h6M14.5 14.5l4.2 4.2M45.3 45.3l4.2 4.2M14.5 49.5l4.2-4.2M45.3 18.7l4.2-4.2"/></g>',
+      "mainly-sun":
+        '<circle cx="24" cy="22" r="8" fill="#E8C9A0"/><g stroke="#D4A574" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M24 8v4M8 22h4M13 11l3 3M13 33l3-3M35 11l-3 3"/></g><path d="M22 36h20a10 10 0 0 1 0 20H22a12 12 0 0 1 0-20z" fill="#F0E8DC" stroke="#2A3F66" stroke-width="2"/>',
+      "partly-cloud":
+        '<circle cx="22" cy="20" r="8" fill="#E8C9A0"/><g stroke="#D4A574" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M22 8v3.5M9 20h3.5M12 11l2.5 2.5"/></g><path d="M20 34h24a11 11 0 0 1 0 22H20a13 13 0 0 1 0-22z" fill="#F0E8DC" stroke="#2A3F66" stroke-width="2"/>',
+      cloud:
+        '<path d="M18 30h28a12 12 0 0 1 0 24H18a14 14 0 0 1 0-24z" fill="#E5DDD0" stroke="#2A3F66" stroke-width="2.2"/>',
+      fog:
+        '<path d="M16 22h28a10 10 0 0 1 0 20H16a12 12 0 0 1 0-20z" fill="#E5DDD0" stroke="#8B7BA8" stroke-width="2"/><g stroke="#8A857A" stroke-width="2.4" stroke-linecap="round"><path d="M14 48h36M18 54h28"/></g>',
+      drizzle:
+        '<path d="M18 18h28a12 12 0 0 1 0 24H18a14 14 0 0 1 0-24z" fill="#E5DDD0" stroke="#2A3F66" stroke-width="2.2"/><g stroke="#5A6B4A" stroke-width="2.4" stroke-linecap="round"><path d="M24 48v6M32 50v6M40 48v6"/></g>',
+      rain:
+        '<path d="M18 16h28a12 12 0 0 1 0 24H18a14 14 0 0 1 0-24z" fill="#E5DDD0" stroke="#2A3F66" stroke-width="2.2"/><g stroke="#1B2A4A" stroke-width="2.6" stroke-linecap="round"><path d="M24 46l-3 10M32 48l-3 10M40 46l-3 10"/></g>',
+      "heavy-rain":
+        '<path d="M16 14h30a13 13 0 0 1 0 26H16a15 15 0 0 1 0-26z" fill="#C9D0D8" stroke="#0F1A2E" stroke-width="2.2"/><g stroke="#1B2A4A" stroke-width="3" stroke-linecap="round"><path d="M22 44l-4 12M32 46l-4 12M42 44l-4 12"/></g>',
+      snow:
+        '<path d="M18 16h28a12 12 0 0 1 0 24H18a14 14 0 0 1 0-24z" fill="#F7F2EA" stroke="#2A3F66" stroke-width="2.2"/><g fill="#8B7BA8"><circle cx="24" cy="50" r="2.4"/><circle cx="32" cy="54" r="2.4"/><circle cx="40" cy="50" r="2.4"/></g>',
+      "heavy-snow":
+        '<path d="M16 14h30a13 13 0 0 1 0 26H16a15 15 0 0 1 0-26z" fill="#F7F2EA" stroke="#2A3F66" stroke-width="2.2"/><g fill="#8B7BA8"><circle cx="22" cy="48" r="2.6"/><circle cx="32" cy="52" r="2.8"/><circle cx="42" cy="48" r="2.6"/><circle cx="27" cy="56" r="2.2"/><circle cx="37" cy="56" r="2.2"/></g>',
+      thunder:
+        '<path d="M18 14h28a12 12 0 0 1 0 24H18a14 14 0 0 1 0-24z" fill="#2A3F66" stroke="#0F1A2E" stroke-width="2"/><path d="M34 36l-8 14h8l-4 12 14-18h-8l6-8z" fill="#E8C9A0" stroke="#C45C4A" stroke-width="1.2" stroke-linejoin="round"/>',
+      "thunder-hail":
+        '<path d="M16 12h30a13 13 0 0 1 0 24H16a15 15 0 0 1 0-24z" fill="#2A3F66" stroke="#0F1A2E" stroke-width="2"/><path d="M34 34l-8 13h8l-4 11 14-16h-8l6-8z" fill="#E8C9A0" stroke="#C45C4A" stroke-width="1.2" stroke-linejoin="round"/><g fill="#E8C9A0"><circle cx="20" cy="56" r="2.2"/><circle cx="46" cy="56" r="2.2"/></g>',
+      unknown:
+        '<circle cx="32" cy="32" r="16" fill="#F0E8DC" stroke="#8A857A" stroke-width="2"/><text x="32" y="38" text-anchor="middle" font-size="18" fill="#5C584F" font-family="Noto Serif JP, serif">?</text>',
+    };
+    const body = icons[kind] || icons.unknown;
+    return (
+      '<svg class="wx-icon-svg" viewBox="0 0 64 64" width="40" height="40" aria-hidden="true" focusable="false">' +
+      body +
+      "</svg>"
+    );
+  }
+
+  function weatherConditionHtml(code) {
+    return (
+      '<span class="wx-cond">' +
+      weatherIcon(code) +
+      '<span class="wx-cond-text">' +
+      weatherLabel(code) +
+      "</span></span>"
+    );
+  }
+
   function prefersReduce() {
     return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
@@ -377,13 +442,13 @@
     const card = document.getElementById("wx-card-" + panelId);
     if (card) {
       card.innerHTML =
-        "<strong>" +
+        weatherConditionHtml(h.code) +
+        "<span class='wx-hour-meta'><strong>" +
         det.timeLabel +
         "</strong>　" +
         det.temp +
-        "　" +
-        det.cond +
-        (det.extra ? "　" + det.extra : "");
+        (det.extra ? "　" + det.extra : "") +
+        "</span>";
     }
     const wrap = document.querySelector('.wx-chart-wrap[data-panel="' + panelId + '"]');
     if (!wrap) return;
@@ -392,13 +457,13 @@
     if (!tip || !svg) return;
     tip.hidden = false;
     tip.innerHTML =
-      "<strong>" +
+      weatherConditionHtml(h.code) +
+      "<span class='wx-tip-meta'><strong>" +
       det.timeLabel +
       "</strong><br>" +
       det.temp +
-      " · " +
-      det.cond +
-      (det.extra ? "<br>" + det.extra : "");
+      (det.extra ? "<br>" + det.extra : "") +
+      "</span>";
     const dot = svg.querySelector('.wx-dot[data-i="' + index + '"]');
     if (dot) {
       const ctm = svg.getScreenCTM();
@@ -516,7 +581,7 @@
           "</h2>" +
           '<div class="wx-overview">' +
           '<div class="wx-stat cond"><div class="wx-stat-label">天氣概況</div><div class="wx-stat-value">' +
-          weatherLabel(sliced.code) +
+          weatherConditionHtml(sliced.code) +
           "</div></div>" +
           '<div class="wx-stat"><div class="wx-stat-label">最高氣溫</div><div class="wx-stat-value">' +
           fmtTemp(sliced.high) +

@@ -929,6 +929,39 @@ a.tag {
   margin-top: .15rem;
 }
 .wx-stat.cond .wx-stat-value { font-size: 1.05rem; }
+.wx-cond {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  min-width: 0;
+}
+.wx-icon-svg {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: block;
+}
+.wx-stat.cond .wx-cond {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .25rem;
+}
+.wx-stat.cond .wx-icon-svg {
+  width: 48px;
+  height: 48px;
+}
+.wx-cond-text { line-height: 1.25; }
+.wx-hour-card {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+}
+.wx-hour-card .wx-icon-svg {
+  width: 32px;
+  height: 32px;
+}
+.wx-hour-meta { min-width: 0; }
 
 .wx-chart-wrap { position: relative; }
 .wx-chart {
@@ -954,7 +987,17 @@ a.tag {
   box-shadow: var(--shadow-hover);
   transform: translate(-50%, calc(-100% - 10px));
   z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
 }
+.wx-tooltip .wx-icon-svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.wx-tooltip .wx-cond-text { display: none; }
+.wx-tip-meta { line-height: 1.4; }
 .wx-tooltip strong { color: var(--gold-light); font-weight: 600; }
 .wx-hour-card {
   margin-top: .85rem;
