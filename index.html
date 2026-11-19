@@ -1,145 +1,115 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-HK">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>九州自由行 · 博多據點 11/24–11/30 | LAWRENCE LAU</title>
-<meta name="description" content="三人博多據點自由行：香港航空往返福岡、七日行程、住宿與行李清單。日系繪本風行程頁。">
-<meta name="theme-color" content="#FFFCF6">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F6D27A' stroke='%233E3A39' stroke-width='3'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='16' font-family='sans-serif' fill='%233E3A39'%3E%E4%B9%9D%3C/text%3E%3C/svg%3E">
+<title>九州自由行 · 和風行程儀表板 | LAWRENCE LAU</title>
+<meta name="description" content="三人博多據點自由行：香港航空往返福岡、七日行程、住宿與行李清單。和風行程儀表板。">
+<meta name="theme-color" content="#1B2A4A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%231B2A4A'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='14' font-family='serif' fill='%23D4A574'%3E%E4%B9%9D%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a class="skip" href="#home">跳到內容</a>
+<a class="skip" href="#main">跳到內容</a>
 
-<header class="nav">
-  <a class="nav-mark" href="#home" aria-label="九州自由行首頁">九</a>
-  <nav class="nav-links" aria-label="頁面章節">
-    <a href="#home" class="is-active">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 11.5 12 4l8.5 7.5"/><path d="M6.5 10.5V19h11V10.5"/></svg>
-      首頁
-    </a>
-    <a href="#flights">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M3 13.5 21 8l-3.5 9.5-5-2.5-3 3.5-.7-4.2L3 13.5z"/></svg>
-      航班
-    </a>
-    <a href="#itinerary">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3.5V7M16 3.5V7M4 10h16"/></svg>
-      行程
-    </a>
-    <a href="#todos">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8 12 2.8 2.8L16.5 9"/></svg>
-      待辦
-    </a>
-    <a href="#hotel">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V9l8-5 8 5v11"/><path d="M10 20v-6h4v6"/></svg>
-      住宿
-    </a>
-    <a href="#prep">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
-      出發前
-    </a>
-    <a href="#packing">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M8 8V6.5A4 4 0 0 1 16 6.5V8"/></svg>
-      行李
-    </a>
-  </nav>
-  <button class="nav-more" type="button" aria-label="顯示更多選單">›</button>
-</header>
+<nav class="nav">
+  <a class="nav-brand" href="#home"><div class="crest">九</div><span>九州和風儀表板</span></a>
+  <div class="nav-tabs" aria-label="頁面章節">
+    <a class="nav-tab is-active" href="#home">概覽</a>
+    <a class="nav-tab" href="#flights">航班</a>
+    <a class="nav-tab" href="#itinerary">行程</a>
+    <a class="nav-tab" href="weather.html">天氣</a>
+    <a class="nav-tab" href="#todos">待辦</a>
+    <a class="nav-tab" href="#hotel">住宿</a>
+    <a class="nav-tab" href="#prep">出發前</a>
+    <a class="nav-tab" href="#packing">行李</a>
+    <a class="nav-tab" href="koyo/">紅葉</a>
+  </div>
+  <div class="nav-meta"><strong>2026.11.24–30</strong>LAWRENCE LAU · 三人行</div>
+</nav>
 
-<main class="wrap">
-<section id="home">
-  <div class="hero">
-    <div class="illo-frame" aria-hidden="true">
-      <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
-        <rect width="400" height="250" fill="#E7F3F8"/>
-        <circle class="bob-slow" cx="338" cy="50" r="28" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
-        <g class="bob" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-          <ellipse cx="70" cy="46" rx="28" ry="16"/>
-          <ellipse cx="96" cy="46" rx="20" ry="14"/>
-          <ellipse cx="48" cy="50" rx="16" ry="11"/>
-        </g>
-        <g class="bob-slow" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-          <ellipse cx="190" cy="36" rx="24" ry="14"/>
-          <ellipse cx="214" cy="38" rx="16" ry="11"/>
-        </g>
-        <path d="M0 166 H400 V250 H0 Z" fill="#B9DAA5"/>
-        <path d="M0 188 C60 176 120 200 184 188 C252 174 314 200 400 182 V250 H0 Z" fill="#A8D3E6"/>
-        <path class="wave" d="M-10 208 C30 198 70 218 110 208 S190 218 230 208 310 218 350 208 410 214 430 208" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
-        <path class="wave" d="M-20 226 C20 216 70 236 120 226 S220 236 270 226 360 232 420 224" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
-        <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-          <rect x="236" y="86" width="128" height="100" rx="14" fill="#FFFCF6"/>
-          <rect x="248" y="70" width="104" height="22" rx="8" fill="#F2A497"/>
-          <rect x="252" y="108" width="22" height="22" rx="6" fill="#A8D3E6"/>
-          <rect x="284" y="108" width="22" height="22" rx="6" fill="#A8D3E6"/>
-          <rect x="316" y="108" width="22" height="22" rx="6" fill="#F6D27A"/>
-          <rect x="252" y="140" width="22" height="22" rx="6" fill="#A8D3E6"/>
-          <rect x="284" y="140" width="22" height="22" rx="6" fill="#B9DAA5"/>
-          <rect x="316" y="140" width="22" height="22" rx="6" fill="#A8D3E6"/>
-          <rect x="283" y="164" width="28" height="22" rx="6" fill="#3E3A39"/>
-        </g>
-        <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-          <path d="M198 148 L217 132 L236 148" fill="#F2A497"/>
-          <rect x="204" y="148" width="26" height="34" rx="6" fill="#A8D3E6"/>
-        </g>
-        <g class="bob" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
-          <path d="M148 202 C158 216 212 216 228 202 Z" fill="#FFFCF6"/>
-          <path d="M186 202 V178"/>
-          <path d="M186 178 L212 188 L186 192 Z" fill="#F6D27A"/>
-        </g>
-        <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
-          <path d="M36 196 C38 226 136 226 138 196" fill="#F2A497"/>
-          <ellipse cx="87" cy="196" rx="51" ry="16" fill="#F2A497"/>
-          <ellipse cx="87" cy="194" rx="38" ry="11" fill="#FFFCF6"/>
-          <ellipse cx="72" cy="194" rx="12" ry="8" fill="#F6D27A"/>
-          <circle cx="72" cy="194" r="4" fill="#F2A497" stroke="none"/>
-          <path d="M102 190 q8 1 10 9" fill="none" stroke="#B9DAA5" stroke-width="4"/>
-          <path d="M112 188 q6 3 6 11" fill="none" stroke="#B9DAA5" stroke-width="4"/>
-          <path d="M128 168 L98 196"/>
-          <path d="M136 172 L102 198"/>
-        </g>
-      </svg>
+<header class="hero" id="home">
+  <div class="hero-accent-bar"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">✦ 九州自由行 · KYUSHU TRIP DASHBOARD</div>
+    <h1>博多為據點 · <span>七日慢旅</span></h1>
+    <p class="hero-sub">香港航空往返福岡 · All-Kyushu JR Pass 已購 · 親子三人 · 東方酒店 福岡 博多ステーション</p>
+    <div class="hero-pills">
+      <div class="hero-pill"><span class="dot"></span>HX638 08:15 HKG → 12:25 FUK</div>
+      <div class="hero-pill"><span class="dot"></span>HX641 14:45 FUK → 18:00 HKG</div>
+      <div class="hero-pill"><span class="dot"></span>前田屋 17:00 已訂</div>
+      <div class="hero-pill"><span class="dot"></span>高千穗團 08:00 已鎖</div>
+      <div class="hero-pill"><span class="dot"></span>由布院 09:17／15:56</div>
+      <div class="hero-pill"><span class="dot"></span>焼肉長介 19:30 擬自行訂</div>
     </div>
-    <div class="hero-copy">
-      <span class="kicker">KYUSHU TRIP</span>
-      <h1>九州自由行</h1>
-      <p class="hero-sub">博多據點 · 11/24–11/30</p>
-      <p class="hero-meta">LAWRENCE LAU 與父母 · 三人行<br>All-Kyushu JR Pass 已購</p>
-      <div class="countdown" id="countdown">
-        <div class="countdown-label" id="countdown-label">距離 HX638 起飛還有</div>
-        <div class="countdown-row" id="countdown-row">
-          <div class="cd-unit"><span class="cd-num" id="cd-days">–</span><span class="cd-lab">日</span></div>
-          <div class="cd-unit"><span class="cd-num" id="cd-hours">–</span><span class="cd-lab">小時</span></div>
-          <div class="cd-unit"><span class="cd-num" id="cd-mins">–</span><span class="cd-lab">分鐘</span></div>
-        </div>
-        <div class="cd-status" id="countdown-status" hidden></div>
+    <div class="countdown" id="countdown">
+      <div class="countdown-label" id="countdown-label">距離 HX638 起飛還有</div>
+      <div class="countdown-row" id="countdown-row">
+        <div class="cd-unit"><span class="cd-num" id="cd-days">–</span><span class="cd-lab">日</span></div>
+        <div class="cd-unit"><span class="cd-num" id="cd-hours">–</span><span class="cd-lab">小時</span></div>
+        <div class="cd-unit"><span class="cd-num" id="cd-mins">–</span><span class="cd-lab">分鐘</span></div>
       </div>
+      <div class="cd-status" id="countdown-status" hidden></div>
     </div>
   </div>
-</section>
+</header>
+
+<main class="wrap" id="main">
+  <div class="kpi-row">
+    <div class="kpi" data-a="ind"><div class="kpi-label">行程日數</div><div class="kpi-value">7 日</div><div class="kpi-hint">11/24 – 11/30</div></div>
+    <div class="kpi" data-a="ver"><div class="kpi-label">同行人數</div><div class="kpi-value">3 人</div><div class="kpi-hint">本人 + 父母</div></div>
+    <div class="kpi" data-a="gold"><div class="kpi-label">據點酒店</div><div class="kpi-value">東方酒店</div><div class="kpi-hint">筑紫口 徒歩約 1 分</div></div>
+    <div class="kpi" data-a="moss"><div class="kpi-label">JR 通票</div><div class="kpi-value">全九州</div><div class="kpi-hint">不含山陽新幹線／地鐵／的士</div></div>
+    <div class="kpi" data-a="wis"><div class="kpi-label">尚待確認</div><div class="kpi-value">6 項</div><div class="kpi-hint">燒肉・黑豬・初喜・確認信・集合點・D4 晚餐</div></div>
+    <div class="kpi" data-a="ver"><div class="kpi-label">天氣頁</div><div class="kpi-value">七日</div><div class="kpi-hint"><a href="weather.html">按日查看 24 小時預報</a></div></div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:2.25rem">
+    <div class="card">
+      <div class="card-title">2026 年 11 月行程曆</div>
+      <div class="cal" id="nov-cal">
+        <div class="cal-dow">日</div><div class="cal-dow">一</div><div class="cal-dow">二</div><div class="cal-dow">三</div><div class="cal-dow">四</div><div class="cal-dow">五</div><div class="cal-dow">六</div>
+        <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div>
+        <div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div><div class="cal-day">13</div>
+        <div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div><div class="cal-day">20</div>
+        <div class="cal-day">21</div><div class="cal-day">22</div><div class="cal-day">23</div>
+        <button type="button" class="cal-day trip" data-day="1">24<span class="dlabel">D1 抵</span></button>
+        <button type="button" class="cal-day trip" data-day="2">25<span class="dlabel">D2 高</span></button>
+        <button type="button" class="cal-day trip" data-day="3">26<span class="dlabel">D3 由</span></button>
+        <button type="button" class="cal-day trip" data-day="4">27<span class="dlabel">D4 霧</span></button>
+        <button type="button" class="cal-day trip" data-day="5">28<span class="dlabel">D5 倉</span></button>
+        <button type="button" class="cal-day trip" data-day="6">29<span class="dlabel">D6 休</span></button>
+        <button type="button" class="cal-day trip" data-day="7">30<span class="dlabel">D7 回</span></button>
+      </div>
+      <div class="cal-legend"><span><i></i>行程日（按日期編號，D4 霧島／鹿兒島、D5 小倉）</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">七日重點</div>
+      <ul class="highlight-list">
+        <li><span class="hl-day">D1</span><span>11/24 抵達博多 · 17:00 前田屋已訂</span></li>
+        <li><span class="hl-day">D2</span><span>11/25 高千穗一日團 08:00 · 晚 焼肉長介 19:30 擬自行訂</span></li>
+        <li><span class="hl-day">D3</span><span>11/26 由布院 · 09:17 去／15:56 回（車次名待核）</span></li>
+        <li><span class="hl-day">D4</span><span>11/27 霧島神宮＋鹿兒島 · 主回程つばめ 338</span></li>
+        <li><span class="hl-day">D5</span><span>11/28 小倉紅葉＋西新初喜 13:30（尚未訂）</span></li>
+        <li><span class="hl-day">D6</span><span>11/29 博多休息日</span></li>
+        <li><span class="hl-day">D7</span><span>11/30 中午前退房 · HX641 14:45</span></li>
+      </ul>
+    </div>
+  </div>
 
 <section id="flights">
   <div class="sec-head">
     <span class="sec-icon coral" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M3 13.5 21 8l-3.5 9.5-5-2.5-3 3.5-.7-4.2L3 13.5z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M3 13.5 21 8l-3.5 9.5-5-2.5-3 3.5-.7-4.2L3 13.5z"/></svg>
     </span>
     <h2>航班</h2>
   </div>
   <div class="flights">
     <article class="flight out">
-      <div class="flight-illo" aria-hidden="true">
-        <svg viewBox="0 0 120 80" class="bob">
-          <ellipse cx="86" cy="28" rx="18" ry="9" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/>
-          <path d="M14 44 C22 30 46 26 78 30 L110 36 C116 38 116 46 108 46 L72 48 L54 66 H42 L54 48 L20 50 C10 50 8 44 14 44Z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
-          <circle cx="70" cy="38" r="3.2" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
-          <circle cx="84" cy="37" r="3.2" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
-          <path d="M40 40 L28 28 H36 L52 40" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div>
+<div>
         <div class="flight-kicker">去程 · 11/24（二）</div>
         <div class="flight-code">HX638 · 香港航空</div>
         <div class="flight-path">
@@ -151,16 +121,7 @@
       </div>
     </article>
     <article class="flight in">
-      <div class="flight-illo" aria-hidden="true">
-        <svg viewBox="0 0 120 80" class="bob-slow" style="transform:scaleX(-1)">
-          <ellipse cx="86" cy="28" rx="18" ry="9" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/>
-          <path d="M14 44 C22 30 46 26 78 30 L110 36 C116 38 116 46 108 46 L72 48 L54 66 H42 L54 48 L20 50 C10 50 8 44 14 44Z" fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
-          <circle cx="70" cy="38" r="3.2" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
-          <circle cx="84" cy="37" r="3.2" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
-          <path d="M40 40 L28 28 H36 L52 40" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div>
+<div>
         <div class="flight-kicker">回程 · 11/30（一）</div>
         <div class="flight-code">HX641 · 香港航空</div>
         <div class="flight-path">
@@ -182,7 +143,7 @@
 <section id="itinerary">
   <div class="sec-head">
     <span class="sec-icon yama" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3.5V7M16 3.5V7M4 10h16"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3.5V7M16 3.5V7M4 10h16"/></svg>
     </span>
     <h2>每日行程</h2>
   </div>
@@ -199,38 +160,7 @@
 
   <article class="day-panel is-active" data-day="1" id="day-1" role="tabpanel" aria-labelledby="tab-1">
     <div class="day-card">
-        <div class="day-illo">
-          <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="400" height="180" fill="#E7F3F8"/>
-            <circle class="bob-slow" cx="50" cy="40" r="20" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
-            <g class="bob" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-              <ellipse cx="140" cy="36" rx="22" ry="12"/><ellipse cx="160" cy="38" rx="14" ry="10"/>
-            </g>
-            <rect x="0" y="108" width="400" height="72" fill="#B9DAA5"/>
-            <path d="M0 128 C80 116 140 140 210 126 C280 112 340 138 400 122 V180 H0 Z" fill="#A8D3E6"/>
-            <path class="wave" d="M-8 148 C40 138 90 158 140 148 S240 158 290 148 390 158 430 148" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
-            <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-              <rect x="250" y="52" width="110" height="80" rx="12" fill="#FFFCF6"/>
-              <rect x="262" y="40" width="86" height="18" rx="7" fill="#F2A497"/>
-              <rect x="266" y="70" width="18" height="18" rx="5" fill="#A8D3E6"/>
-              <rect x="292" y="70" width="18" height="18" rx="5" fill="#F6D27A"/>
-              <rect x="318" y="70" width="18" height="18" rx="5" fill="#A8D3E6"/>
-              <rect x="288" y="106" width="24" height="26" rx="5" fill="#3E3A39"/>
-            </g>
-            <g class="bob" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-              <path d="M150 140 C160 152 210 152 224 140 Z" fill="#FFFCF6"/>
-              <path d="M186 140 V122"/><path d="M186 122 L206 130 L186 134 Z" fill="#F6D27A"/>
-            </g>
-            <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
-              <path d="M28 138 C30 164 108 164 110 138" fill="#F2A497"/>
-              <ellipse cx="69" cy="138" rx="41" ry="13" fill="#F2A497"/>
-              <ellipse cx="69" cy="136" rx="30" ry="9" fill="#FFFCF6"/>
-              <ellipse cx="58" cy="136" rx="9" ry="6" fill="#F6D27A"/>
-              <path d="M108 118 L80 138"/><path d="M116 122 L84 140"/>
-            </g>
-          </svg>
-        </div>
-      <div class="day-body">
+<div class="day-body">
         <h3 class="day-title">D1 · 11/24（二）抵達博多</h3>
         <p class="day-lead">節奏放緩 · 先安頓行李，把力氣留給晚上同翌日。</p>
         <div class="timeline">
@@ -286,34 +216,9 @@
 
   <article class="day-panel" data-day="2" id="day-2" role="tabpanel" aria-labelledby="tab-2" hidden>
     <div class="day-card">
-        <div class="day-illo take">
-          <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="400" height="180" fill="#E7F3F8"/>
-            <circle class="bob-slow" cx="200" cy="36" r="18" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
-            <path d="M0 20 C20 70 50 40 70 18 L90 180 H0 Z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M400 16 C370 64 340 36 318 16 L300 180 H400 Z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M78 118 C130 150 250 152 312 116 L300 180 H90 Z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
-            <path class="wave" d="M100 142 C150 132 200 152 250 142 290 134 330 148 350 140" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
-            <g class="sway" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-              <path d="M42 70 L42 20" fill="none"/>
-              <circle cx="42" cy="16" r="14" fill="#B9DAA5"/>
-              <circle cx="30" cy="22" r="10" fill="#B9DAA5"/>
-            </g>
-            <g class="sway" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-              <path d="M360 66 L360 18" fill="none"/>
-              <circle cx="360" cy="14" r="13" fill="#B9DAA5"/>
-              <circle cx="372" cy="22" r="9" fill="#B9DAA5"/>
-            </g>
-            <g class="bob" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-              <path d="M170 138 C180 152 230 152 244 138 Z" fill="#FFFCF6"/>
-              <circle cx="186" cy="132" r="6" fill="#F2A497"/>
-              <circle cx="214" cy="131" r="6" fill="#F6D27A"/>
-            </g>
-          </svg>
-        </div>
-      <div class="day-body">
+<div class="day-body">
         <h3 class="day-title">D2 · 11/25（三）高千穗一日團</h3>
-        <p class="day-lead">長途日 · 早出晚歸。車上補眠，晚餐選座位寬敞的店。</p>
+        <p class="day-lead">長途日 · 早出晚歸。車上補眠。晚餐擬往藥院焼肉長介 19:30，將自行訂位。</p>
         <a class="koyo-link" href="koyo/">查看高千穗紅葉情報</a>
         <div class="timeline">
         <div class="tl transit must">
@@ -344,12 +249,12 @@
           </div>
         </div>
         <div class="tl meal">
-          <div class="tl-time">19:30 後</div>
+          <div class="tl-time">19:30</div>
           <div class="tl-rail"><span class="tl-dot"></span></div>
           <div class="tl-main">
-            <div class="tl-title">燒肉晚餐 · 尚未訂位</div>
-            <div class="tl-desc">候補：焼肉の牛太 本陣，或焼肉チャンピオン JR博多シティ（車站內，少走路）。週末建議盡快訂三人位。</div>
-            <div class="tl-tags"><span class="tag warn">待訂位</span><span class="tag"><a class="tag" href="https://g.page/honjin_yd?share" target="_blank" rel="noopener">牛太</a></span><span class="tag"><a class="tag" href="https://www.google.com/maps/place/?q=place_id:ChIJBVmI6seRQTURT3Xk9Lpj52M" target="_blank" rel="noopener">チャンピオン</a></span></div>
+            <div class="tl-title">焼肉長介 · 藥院 · 席のみ</div>
+            <div class="tl-desc">擬訂 19:30 三人只訂位，將自行網上預訂，尚未確認。店在藥院 リアン藥院ビル 7 樓，不是博多／天神的姊妹店「二〇加屋長介」。網上訂是「お席指定なし」；若要半個室請打店舖電話 092-707-3290。全席禁煙，座位約 2 小時。</div>
+            <div class="tl-tags"><span class="tag warn">擬自行訂 · 尚未確認</span><span class="tag"><a class="tag" href="https://www.hotpepper.jp/strJ003715970/yoyaku/reserve/20261125_1930_rpn3_cnod44_rsi2924353/" target="_blank" rel="noopener">Hot Pepper 19:30</a></span><span class="tag"><a class="tag" href="https://www.tablecheck.com/ja/shops/yakinikuchosuke/reserve" target="_blank" rel="noopener">TableCheck</a></span></div>
           </div>
         </div>
         </div>
@@ -359,33 +264,7 @@
 
   <article class="day-panel" data-day="3" id="day-3" role="tabpanel" aria-labelledby="tab-3" hidden>
     <div class="day-card">
-        <div class="day-illo yama">
-          <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="400" height="180" fill="#E7F3F8"/>
-            <circle class="bob-slow" cx="68" cy="40" r="20" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
-            <path d="M40 110 L130 46 L200 110 Z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M160 118 L260 40 L350 118 Z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M0 118 H400 V180 H0 Z" fill="#B9DAA5"/>
-            <ellipse cx="200" cy="148" rx="150" ry="28" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3"/>
-            <path d="M80 148 C130 138 180 158 230 148 S330 158 360 146" fill="none" stroke="#3E3A39" stroke-width="2" opacity=".5"/>
-            <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-              <rect x="70" y="108" width="36" height="28" rx="4" fill="#FFFCF6"/>
-              <path d="M64 108 L88 90 L112 108" fill="#F2A497"/>
-              <rect x="300" y="110" width="32" height="24" rx="4" fill="#FFFCF6"/>
-              <path d="M294 110 L316 94 L338 110" fill="#F6D27A"/>
-            </g>
-            <g class="steam" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5">
-              <ellipse cx="248" cy="86" rx="8" ry="12"/>
-            </g>
-            <g class="steam2" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5">
-              <ellipse cx="266" cy="76" rx="7" ry="11"/>
-            </g>
-            <g class="puff" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5">
-              <ellipse cx="232" cy="78" rx="6" ry="9"/>
-            </g>
-          </svg>
-        </div>
-      <div class="day-body">
+<div class="day-body">
         <h3 class="day-title">D3 · 11/26（四）由布院</h3>
         <p class="day-lead">去 09:17、回 15:56 已鎖定。山區偏涼，帶薄外套。</p>
         <a class="koyo-link" href="koyo/">查看由布院紅葉情報</a>
@@ -442,39 +321,7 @@
 
   <article class="day-panel" data-day="4" id="day-4" role="tabpanel" aria-labelledby="tab-4" hidden>
     <div class="day-card">
-        <div class="day-illo coral">
-          <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="400" height="180" fill="#E7F3F8"/>
-            <path d="M228 118 L318 64 L400 118 Z" fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M294 84 L318 64 L344 84 Z" fill="#3E3A39"/>
-            <g class="puff" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5">
-              <ellipse cx="330" cy="50" rx="9" ry="10"/>
-            </g>
-            <g class="steam2" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5">
-              <ellipse cx="348" cy="44" rx="7" ry="8"/>
-            </g>
-            <path d="M0 118 H400 V180 H0 Z" fill="#B9DAA5"/>
-            <path d="M200 118 C260 108 330 130 400 118 V160 C330 170 260 150 200 160 Z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3"/>
-            <g class="sway" stroke="#3E3A39" stroke-width="3" fill="#B9DAA5">
-              <path d="M36 118 L36 50" fill="none"/>
-              <path d="M36 86 L18 54 L36 64 L52 48 L36 70" fill="#B9DAA5"/>
-              <path d="M36 64 L22 36 L36 50 L48 32 L36 56" fill="#B9DAA5"/>
-            </g>
-            <g class="sway" stroke="#3E3A39" stroke-width="3" fill="#B9DAA5">
-              <path d="M78 118 L78 58" fill="none"/>
-              <path d="M78 90 L62 58 L78 70 L94 54 L78 74" fill="#B9DAA5"/>
-            </g>
-            <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
-              <path d="M126 118 V62" fill="none"/>
-              <path d="M186 118 V62" fill="none"/>
-              <path d="M108 48 H204 L196 60 H116 Z" fill="#F2A497"/>
-              <path d="M118 68 H194 L190 78 H122 Z" fill="#F2A497"/>
-              <path d="M126 62 V48 M186 62 V48" fill="none"/>
-            </g>
-            <path d="M40 118 H220" stroke="#3E3A39" stroke-width="3" fill="none"/>
-          </svg>
-        </div>
-      <div class="day-body">
+<div class="day-body">
         <h3 class="day-title">D4 · 11/27（五）霧島 · 鹿兒島</h3>
         <p class="day-lead">長途日 · 白天車次已鎖定。晚餐未選定；回程以つばめ 338 為主。</p>
         <a class="koyo-link" href="koyo/">查看霧島／鹿兒島紅葉情報</a>
@@ -585,48 +432,7 @@
 
   <article class="day-panel" data-day="5" id="day-5" role="tabpanel" aria-labelledby="tab-5" hidden>
     <div class="day-card">
-        <div class="day-illo yama">
-          <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="400" height="180" fill="#E7F3F8"/>
-            <circle class="bob-slow" cx="340" cy="36" r="18" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
-            <path d="M0 130 H400 V180 H0 Z" fill="#B9DAA5"/>
-            <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-              <rect x="148" y="108" width="104" height="28" rx="4" fill="#FFFCF6"/>
-              <path d="M160 108 L200 88 L240 108" fill="#FFFCF6"/>
-              <path d="M168 88 L200 68 L232 88" fill="#FFFCF6"/>
-              <path d="M178 68 L200 52 L222 68" fill="#FFFCF6"/>
-              <path d="M148 108 L200 88 L252 108" fill="none"/>
-              <path d="M168 88 L200 68 L232 88" fill="none"/>
-              <path d="M178 68 L200 52 L222 68" fill="none"/>
-              <rect x="160" y="88" width="80" height="8" fill="#3E3A39"/>
-              <rect x="172" y="68" width="56" height="8" fill="#3E3A39"/>
-              <rect x="182" y="52" width="36" height="8" fill="#3E3A39"/>
-              <polygon points="200,36 206,52 194,52" fill="#3E3A39"/>
-              <rect x="192" y="118" width="16" height="18" rx="3" fill="#3E3A39"/>
-            </g>
-            <g class="sway" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-              <path d="M70 130 V88" fill="none"/>
-              <ellipse cx="70" cy="78" rx="16" ry="14" fill="#F2A497"/>
-              <ellipse cx="56" cy="90" rx="10" ry="8" fill="#F6D27A"/>
-              <ellipse cx="86" cy="88" rx="10" ry="8" fill="#F2A497"/>
-            </g>
-            <g class="sway" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-              <path d="M320 130 V92" fill="none"/>
-              <ellipse cx="320" cy="82" rx="15" ry="13" fill="#F2A497"/>
-              <ellipse cx="306" cy="94" rx="9" ry="7" fill="#F6D27A"/>
-            </g>
-            <g class="leaf" fill="#F2A497" stroke="#3E3A39" stroke-width="2">
-              <ellipse cx="110" cy="48" rx="7" ry="5" transform="rotate(-20 110 48)"/>
-            </g>
-            <g class="leaf2" fill="#F6D27A" stroke="#3E3A39" stroke-width="2">
-              <ellipse cx="250" cy="44" rx="7" ry="5" transform="rotate(25 250 44)"/>
-            </g>
-            <g class="leaf" fill="#F2A497" stroke="#3E3A39" stroke-width="2">
-              <ellipse cx="290" cy="62" rx="6" ry="4" transform="rotate(-10 290 62)"/>
-            </g>
-          </svg>
-        </div>
-      <div class="day-body">
+<div class="day-body">
         <h3 class="day-title">D5 · 11/28（六）小倉紅葉＋西新初喜</h3>
         <p class="day-lead">博多–小倉只用特急ソニック。午餐訂 2 樓，13:30 入座。</p>
         <a class="koyo-link" href="koyo/">查看小倉紅葉情報</a>
@@ -710,35 +516,7 @@
 
   <article class="day-panel" data-day="6" id="day-6" role="tabpanel" aria-labelledby="tab-6" hidden>
     <div class="day-card">
-        <div class="day-illo take">
-          <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="400" height="180" fill="#E7F3F8"/>
-            <circle class="bob-slow" cx="70" cy="40" r="22" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
-            <g class="bob" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3">
-              <ellipse cx="200" cy="38" rx="24" ry="13"/><ellipse cx="222" cy="40" rx="14" ry="10"/>
-            </g>
-            <path d="M0 96 H400 V180 H0 Z" fill="#B9DAA5"/>
-            <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-              <rect x="130" y="58" width="150" height="90" rx="14" fill="#FFFCF6"/>
-              <rect x="148" y="76" width="44" height="36" rx="8" fill="#A8D3E6"/>
-              <rect x="218" y="76" width="44" height="36" rx="8" fill="#A8D3E6"/>
-              <rect x="186" y="118" width="38" height="30" rx="6" fill="#3E3A39"/>
-              <rect x="142" y="44" width="126" height="18" rx="8" fill="#F6D27A"/>
-            </g>
-            <g class="bob" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-              <path d="M48 150 C48 128 90 128 90 150 Z" fill="#FFFCF6"/>
-              <ellipse cx="69" cy="128" rx="16" ry="10" fill="#F2A497"/>
-              <path d="M69 118 V108" fill="none"/>
-              <g class="steam"><ellipse cx="64" cy="100" rx="5" ry="7" fill="#FFFCF6"/></g>
-              <g class="steam2"><ellipse cx="74" cy="96" rx="4" ry="6" fill="#FFFCF6"/></g>
-            </g>
-            <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-              <rect x="312" y="118" width="44" height="36" rx="8" fill="#F2A497"/>
-              <path d="M320 118 C326 104 342 104 348 118" fill="none"/>
-            </g>
-          </svg>
-        </div>
-      <div class="day-body">
+<div class="day-body">
         <h3 class="day-title">D6 · 11/29（日）博多休息日</h3>
         <p class="day-lead">節奏極低。這是給長輩與長途日之後的緩衝，不必為「沒排滿」覺得可惜。</p>
         <div class="timeline">
@@ -785,27 +563,7 @@
 
   <article class="day-panel" data-day="7" id="day-7" role="tabpanel" aria-labelledby="tab-7" hidden>
     <div class="day-card">
-        <div class="day-illo">
-          <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="400" height="180" fill="#E7F3F8"/>
-            <circle class="bob-slow" cx="80" cy="44" r="20" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
-            <g class="bob" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3">
-              <ellipse cx="170" cy="40" rx="22" ry="12"/><ellipse cx="190" cy="42" rx="14" ry="10"/>
-            </g>
-            <g class="bob-slow" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3">
-              <ellipse cx="300" cy="30" rx="20" ry="11"/><ellipse cx="318" cy="32" rx="12" ry="9"/>
-            </g>
-            <path d="M0 130 H400 V180 H0 Z" fill="#B9DAA5"/>
-            <g class="bob" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
-              <path d="M70 110 C90 86 150 80 230 86 L320 96 C336 99 336 114 316 114 L220 118 L186 150 H160 L186 118 L90 122 C70 122 62 110 70 110Z" fill="#A8D3E6"/>
-              <circle cx="210" cy="100" r="5" fill="#FFFCF6"/>
-              <circle cx="232" cy="99" r="5" fill="#FFFCF6"/>
-              <circle cx="254" cy="98" r="5" fill="#FFFCF6"/>
-              <path d="M130 102 L108 78 H122 L150 102" fill="#F6D27A"/>
-            </g>
-          </svg>
-        </div>
-      <div class="day-body">
+<div class="day-body">
         <h3 class="day-title">D7 · 11/30（一）回港</h3>
         <p class="day-lead">中午前退房，HX641 14:45 起飛。預留充足過關時間。</p>
         <div class="timeline">
@@ -855,7 +613,7 @@
 <section id="todos">
   <div class="sec-head">
     <span class="sec-icon take" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8 12 2.8 2.8L16.5 9"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8 12 2.8 2.8L16.5 9"/></svg>
     </span>
     <h2>待辦清單</h2>
   </div>
@@ -906,7 +664,7 @@
         </label>
         <label class="check">
           <input type="checkbox" data-store="todos" data-id="yakiniku">
-          <span class="check-txt">D2 燒肉尚未訂（19:30 後；牛太本陣／チャンピオン）<span class="check-flag open">待辦</span></span>
+          <span class="check-txt">D2 焼肉長介（藥院）11/25 19:30 席のみ，擬自行訂位，尚未確認<span class="check-flag open">待辦</span></span>
         </label>
         <label class="check">
           <input type="checkbox" data-store="todos" data-id="hotel-conf">
@@ -934,29 +692,12 @@
 <section id="hotel">
   <div class="sec-head">
     <span class="sec-icon coral" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M10 20v-6h4v6"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M10 20v-6h4v6"/></svg>
     </span>
     <h2>住宿資訊</h2>
   </div>
   <article class="card">
     <div class="hotel-grid">
-      <div class="illo-frame" aria-hidden="true">
-        <svg viewBox="0 0 200 160">
-          <rect width="200" height="160" fill="#E7F3F8"/>
-          <path d="M0 120 H200 V160 H0 Z" fill="#B9DAA5"/>
-          <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
-            <rect x="40" y="36" width="120" height="96" rx="12" fill="#FFFCF6"/>
-            <rect x="52" y="24" width="96" height="18" rx="7" fill="#F2A497"/>
-            <rect x="56" y="58" width="24" height="22" rx="5" fill="#A8D3E6"/>
-            <rect x="88" y="58" width="24" height="22" rx="5" fill="#F6D27A"/>
-            <rect x="120" y="58" width="24" height="22" rx="5" fill="#A8D3E6"/>
-            <rect x="56" y="88" width="24" height="22" rx="5" fill="#A8D3E6"/>
-            <rect x="88" y="88" width="24" height="22" rx="5" fill="#B9DAA5"/>
-            <rect x="120" y="88" width="24" height="22" rx="5" fill="#A8D3E6"/>
-            <rect x="86" y="108" width="28" height="24" rx="5" fill="#3E3A39"/>
-          </g>
-        </svg>
-      </div>
       <div>
         <h3 class="hotel-name">東方酒店 福岡 博多ステーション</h3>
         <p class="hotel-jp">オリエンタルホテル<br>福岡 博多ステーション<br>Oriental Hotel Fukuoka Hakata Station</p>
@@ -975,7 +716,7 @@
 <section id="prep">
   <div class="sec-head">
     <span class="sec-icon yama" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
     </span>
     <h2>出發前清單</h2>
   </div>
@@ -1022,7 +763,7 @@
         </label>
         <label class="check">
           <input type="checkbox" data-store="prep" data-id="d2-yakiniku">
-          <span class="check-txt">出發前或抵步後盡快訂 D2 燒肉 19:30 後三人位</span>
+          <span class="check-txt">自行預訂 D2 焼肉長介（藥院）11/25 19:30 三人席のみ，並視需要致電 092-707-3290 問半個室</span>
         </label>
         <label class="check">
           <input type="checkbox" data-store="prep" data-id="d4-dinner-pick">
@@ -1038,7 +779,7 @@
 <section id="packing">
   <div class="sec-head">
     <span class="sec-icon take" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M8 8V6.5A4 4 0 0 1 16 6.5V8"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M8 8V6.5A4 4 0 0 1 16 6.5V8"/></svg>
     </span>
     <h2>行李清單</h2>
   </div>
@@ -1175,9 +916,11 @@
 </section>
 </main>
 
+<div class="seigaiha-accent"></div>
 <footer class="site-foot">
+  <div class="seal">九</div>
   <p>九州自由行 · LAWRENCE LAU 與父母 · 2026.11.24–30</p>
-  <p>香港航空 HX638／HX641 · All-Kyushu Pass · <a href="koyo/">紅葉情報</a></p>
+  <p>香港航空 HX638／HX641 · All-Kyushu Pass · <a href="weather.html">天氣</a> · <a href="koyo/">紅葉情報</a></p>
 </footer>
 <script src="app.js"></script>
 </body>

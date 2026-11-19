@@ -162,9 +162,8 @@
   });
 
   /* ----- Active nav ----- */
-  const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
-  const navScroller = document.querySelector(".nav-links");
-  const navMore = document.querySelector(".nav-more");
+  const navLinks = Array.from(document.querySelectorAll(".nav-tabs a[href^='#']"));
+  const navScroller = document.querySelector(".nav-tabs");
   const sections = navLinks
     .map((a) => document.querySelector(a.getAttribute("href")))
     .filter(Boolean);
@@ -198,14 +197,18 @@
     });
   });
 
-  if (navMore && navScroller) {
-    navMore.addEventListener("click", () => {
-      const max = navScroller.scrollWidth - navScroller.clientWidth;
-      const next = navScroller.scrollLeft + 120;
-      navScroller.scrollTo({
-        left: next >= max - 8 ? 0 : next,
-        behavior: prefersReduce() ? "auto" : "smooth",
-      });
+
+  /* ----- Calendar jumps to itinerary day ----- */
+  document.querySelectorAll(".cal-day.trip[data-day]").forEach((day) => {
+    day.addEventListener("click", () => {
+      showDay(day.dataset.day, { scroll: true });
     });
+  });
+
+  const hash = location.hash.replace("#", "");
+  if (hash && hash.startsWith("day-")) {
+    const id = hash.slice(4);
+    if (dayBtns.some((b) => b.dataset.day === id)) showDay(id, { scroll: true });
   }
+
 })();
