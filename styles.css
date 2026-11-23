@@ -1030,6 +1030,130 @@ a.tag {
   line-height: 1.6;
 }
 
+
+/* ----- Tickets / 換飛 page ----- */
+.ticket-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin: 1.35rem 0 1.6rem;
+}
+.ticket-jump a {
+  display: inline-block;
+  padding: .35rem .85rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--washi-card);
+  color: var(--indigo);
+  font-size: .82rem;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+}
+.ticket-jump a:hover {
+  background: var(--washi-warm);
+  color: var(--indigo);
+}
+.ticket-notices { margin-top: 0; }
+.ticket-lead,
+.ticket-caption {
+  font-size: .92rem;
+  color: var(--ink-muted);
+  margin: 0 0 .85rem;
+  line-height: 1.65;
+}
+.ticket-caption {
+  font-size: .78rem;
+  color: var(--ink-faint);
+  margin: .7rem 0 0;
+}
+.ticket-prose p + p { margin-top: .7rem; }
+.ticket-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ticket-links li + li { margin-top: .45rem; }
+.ticket-links a { font-weight: 600; }
+.ticket-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: .4rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.ticket-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+  background: var(--washi-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.ticket-table caption {
+  caption-side: top;
+  text-align: left;
+  font-family: "Noto Serif JP", serif;
+  font-size: .92rem;
+  font-weight: 600;
+  color: var(--indigo);
+  margin: 0 0 .55rem;
+}
+.ticket-table th,
+.ticket-table td {
+  text-align: left;
+  padding: .7rem .85rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.ticket-table th {
+  font-size: .72rem;
+  letter-spacing: .06em;
+  color: var(--ink-faint);
+  font-weight: 600;
+  background: var(--washi-warm);
+  white-space: nowrap;
+}
+.ticket-table tr:last-child td { border-bottom: none; }
+.ticket-table .place {
+  font-family: "Noto Serif JP", serif;
+  color: var(--indigo);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.ticket-table .train-no {
+  display: block;
+  margin-top: .15rem;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: .72rem;
+  font-weight: 500;
+  color: var(--ink-faint);
+  letter-spacing: .04em;
+}
+.ticket-table-wrap.is-must .ticket-table {
+  border-color: rgba(196, 92, 74, .28);
+}
+.ticket-table-wrap.is-must th {
+  background: rgba(196, 92, 74, .10);
+  color: var(--vermillion);
+}
+.ticket-table-wrap.is-must caption { color: var(--vermillion); }
+.ticket-table-wrap.is-recommend .ticket-table {
+  border-color: rgba(212, 165, 116, .45);
+}
+.ticket-table-wrap.is-recommend th {
+  background: rgba(212, 165, 116, .18);
+  color: #9A6B3A;
+}
+.ticket-table-wrap.is-recommend caption { color: #9A6B3A; }
+.ticket-table-wrap.is-backup .ticket-table {
+  border-color: rgba(90, 107, 74, .28);
+}
+.ticket-table-wrap.is-backup th {
+  background: rgba(90, 107, 74, .10);
+  color: var(--moss);
+}
+.ticket-table-wrap.is-backup caption { color: var(--moss); }
+
 /* ----- Responsive ----- */
 @media (max-width: 900px) {
   :root { --nav-h: 88px; }
@@ -1064,6 +1188,8 @@ a.tag {
   .hero { padding: 2.2rem 1.15rem 2rem; }
   .wrap { padding: 0 1.05rem 2.5rem; }
   .tl { grid-template-columns: 3.8rem 18px 1fr; }
+  .ticket-table th,
+  .ticket-table td { padding: .6rem .65rem; }
 }
 
 @media (min-width: 1100px) {
